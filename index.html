@@ -2,6 +2,7 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nedräkning till Vietnamresan – 7 februari</title>
   <style>
     body {
@@ -272,6 +273,68 @@
       color: #444;
       text-align: left;
     }
+
+    /* 📱 Mobilanpassning */
+    @media (max-width: 600px) {
+      body {
+        padding: 0.5rem;
+        align-items: flex-start;
+      }
+
+      .countdown-container {
+        padding: 1.5rem 1.1rem;
+        border-radius: 0.75rem;
+      }
+
+      h1 {
+        font-size: 1.25rem;
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .timer {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .time-block {
+        padding: 0.7rem 0.5rem;
+      }
+
+      .time-value {
+        font-size: 1.4rem;
+      }
+
+      .weeks-text {
+        font-size: 0.85rem;
+      }
+
+      .progress-label,
+      .progress-percentage {
+        font-size: 0.75rem;
+      }
+
+      .milestone-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.1rem;
+      }
+
+      .info-card {
+        padding: 0.8rem 0.8rem;
+      }
+
+      .info-title {
+        font-size: 0.9rem;
+      }
+
+      .info-text p {
+        font-size: 0.85rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -331,6 +394,8 @@
             Ankomst: 15:25, 8 feb
           </div>
         </div>
+      </div>
+    </div>
 
     <!-- Hotellinfo bokat -->
     <div class="info-section">
@@ -339,7 +404,6 @@
         <div class="info-card">
           <div class="info-title">Hanoi – Royal Palace</div>
           <div class="info-subtitle">8–11 feb (3 nätter)</div>
-       
           <div class="info-note">Perfekt start i Hanoi efter långresan.</div>
         </div>
         <div class="info-card">
@@ -350,7 +414,6 @@
         <div class="info-card info-card--highlight">
           <div class="info-title">Phú Quốc – Best Western Premier Sonasea</div>
           <div class="info-subtitle">19–26 feb (7 nätter)</div>
-     
           <div class="info-note">Lång, härlig solvecka med riktigt bra standard. ☀️🏝️</div>
         </div>
       </div>
