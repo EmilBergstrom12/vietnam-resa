@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nedräkning till Vietnamresan – 7 februari</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    .countdown-container {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      max-width: 820px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1.8rem;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .time-block {
+      flex: 1;
+      background: #f5f7fa;
+      border-radius: 12px;
+      padding: 0.9rem 0.5rem;
+    }
+
+    .time-value {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .time-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #777;
+      margin-top: 0.3rem;
+    }
+
+    .weeks-text {
+      font-size: 0.9rem;
+      color: #444;
+      margin-bottom: 1.2rem;
+    }
+
+    .progress-wrapper {
+      text-align: left;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .progress-label {
+      font-size: 0.8rem;
+      color: #777;
+      margin-bottom: 0.3rem;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: #eef1f6;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: #4f8df5;
+      transition: width 0.4s ease;
+    }
+
+    .progress-percentage {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 0.3rem;
+      text-align: right;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      text-align: left;
+    }
+
+    /* Milestones / vertical timeline */
+    .milestone-list {
+      margin-top: 1rem;
+      text-align: left;
+      position: relative;
+      padding-left: 1.6rem;
+    }
+
+    .milestone-list::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e0e7ff;
+    }
+
+    .milestone {
+      position: relative;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
+
+    .milestone-dot {
+      position: absolute;
+      left: -2px;
+      top: 0.3rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #4f8df5;
+      box-shadow: 0 0 0 3px rgba(79, 141, 245, 0.2);
+    }
+
+    .milestone-content {
+      background: #f8fafc;
+      padding: 0.7rem 0.9rem;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .milestone-title {
+      font-weight: 600;
+      color: #333;
+      font-size: 0.9rem;
+    }
+
+    .milestone-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    .milestone-date {
+      opacity: 0.9;
+    }
+
+    .milestone-timeleft {
+      font-style: italic;
+    }
+
+    .milestone.past .milestone-content {
+      opacity: 0.55;
+    }
+
+    .milestone.past .milestone-title {
+      text-decoration: line-through;
+    }
+
+    .milestone--party .milestone-dot {
+      background: #f97316;
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
+    }
+
+    .milestone--christmas .milestone-dot {
+      background: #16a34a;
+      box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.25);
+    }
+
+    .milestone--newyear .milestone-dot {
+      background: #eab308;
+      box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.25);
+    }
+
+    .message {
+      font-size: 0.95rem;
+      color: #444;
+      margin-top: 1rem;
+      text-align: left;
+    }
+
+    /* Info-sektioner (flyg + hotell + destination) */
+    .info-section {
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      margin-top: 0.7rem;
+    }
+
+    @media (min-width: 640px) {
+      .info-grid--two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .info-card {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+    }
+
+    .info-card--highlight {
+      border: 1px solid #d4e4ff;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    }
+
+    .info-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-subtitle {
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 0.3rem;
+    }
+
+    .info-dates {
+      font-size: 0.85rem;
+      color: #444;
+    }
+
+    .info-price {
+      font-size: 0.85rem;
+      color: #1d4ed8;
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    .info-note {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 0.25rem;
+    }
+
+    .info-text p {
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+      color: #444;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="countdown-container">
+    <h1>Nedräkning till Vietnam</h1>
+    <div class="subtitle">Avresa: 7 februari 2026 kl 18:10 från Köpenhamn ✈️🇻🇳</div>
+
+    <!-- Huvudnedräkning -->
+    <div class="timer">
+      <div class="time-block">
+        <div id="days" class="time-value">0</div>
+        <div class="time-label">Dagar</div>
+      </div>
+      <div class="time-block">
+        <div id="hours" class="time-value">0</div>
+        <div class="time-label">Timmar</div>
+      </div>
+      <div class="time-block">
+        <div id="minutes" class="time-value">0</div>
+        <div class="time-label">Minuter</div>
+      </div>
+      <div class="time-block">
+        <div id="seconds" class="time-value">0</div>
+        <div class="time-label">Sekunder</div>
+      </div>
+    </div>
+
+    <div id="weeksText" class="weeks-text"></div>
+
+    <div class="progress-wrapper">
+      <div class="progress-label">Resan närmar sig… (från 1 november 2025)</div>
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <div id="progressPercentage" class="progress-percentage"></div>
+    </div>
+
+    <!-- Milstolpar -->
+    <h2>📌 Kommande milstolpar</h2>
+    <div id="milestoneList" class="milestone-list"></div>
+
+    <!-- Flyginfo -->
+    <div class="info-section">
+      <h2>✈️ Internationella flyg – klart</h2>
+      <div class="info-grid">
+        <div class="info-card info-card--highlight">
+          <div class="info-title">Utresa – 7–8 februari 2026</div>
+          <div class="info-subtitle">Allt med Turkish Airlines</div>
+          <div class="info-dates">
+            <strong>CPH → IST (TK1786)</strong><br />
+            Avgång: 18:10, 7 feb<br />
+            Ankomst: 23:25, 7 feb
+          </div>
+          <div class="info-dates" style="margin-top:0.4rem;">
+            <strong>IST → HAN (TK164)</strong><br />
+            Avgång: 02:25, 8 feb<br />
+            Ankomst: 15:25, 8 feb
+          </div>
+        </div>
+
+    <!-- Hotellinfo bokat -->
+    <div class="info-section">
+      <h2>🏨 Hotell – bokat</h2>
+      <div class="info-grid info-grid--two">
+        <div class="info-card">
+          <div class="info-title">Hanoi – Royal Palace</div>
+          <div class="info-subtitle">8–11 feb (3 nätter)</div>
+       
+          <div class="info-note">Perfekt start i Hanoi efter långresan.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-title">Phú Quốc – Le Forest</div>
+          <div class="info-subtitle">16–19 feb (3 nätter)</div>
+          <div class="info-note">Mjukstart på ön innan längre vistelse.</div>
+        </div>
+        <div class="info-card info-card--highlight">
+          <div class="info-title">Phú Quốc – Best Western Premier Sonasea</div>
+          <div class="info-subtitle">19–26 feb (7 nätter)</div>
+     
+          <div class="info-note">Lång, härlig solvecka med riktigt bra standard. ☀️🏝️</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hotellinfo budget -->
+    <div class="info-section">
+      <h2>🏨 Hotell – kvar att boka / budget</h2>
+      <div class="info-grid info-grid--two">
+        <div class="info-card">
+          <div class="info-title">Hạ Long</div>
+          <div class="info-subtitle">11–16 feb (5 nätter)</div>
+          <div class="info-price">ca 5 000 – 8 000 kr</div>
+          <div class="info-note">Mellanklass med frukost & pool – bra bas mellan utflykterna.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-title">Hanoi – avslut</div>
+          <div class="info-subtitle">26 feb – 2 mars (5 nätter)</div>
+          <div class="info-price">ca 4 000 – 6 000 kr</div>
+          <div class="info-note">Sista dagarna i stan innan hemresa – mat, shopping och lugn.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hanoi-destination, mysig text -->
+    <div class="info-section">
+      <h2>🏙️ Hanoi 8–11 februari 2026</h2>
+      <div class="info-card info-text">
+        <p><strong>Tre nätter i Vietnams charmiga huvudstad</strong></p>
+        <p>Hanoi är en av Asiens mest stämningsfulla städer – en blandning av franska kolonialhus, vindlande gränder, doften av grillad street-food och mopeder som surrar runt som små fiskstim. Det känns levande, mjukt, varmt och fullt av historia.</p>
+        <p>Ni kommer hit när vädret är som bäst: runt 22–26°C, torr luft och sköna kvällar. Perfekt start på resan.</p>
+
+        <p><strong>8 februari – ankomst</strong><br />
+        Ni landar i Hanoi kl. 15:25 och tar er in till stan för incheckning på Royal Palace Hotel i Old Quarter. På kvällen: lugn promenad runt Hoan Kiem-sjön, lite street-food och första vietnamesiska kaffet eller ölen.</p>
+
+        <p><strong>11 februari – vidare mot Hạ Long</strong><br />
+        Efter frukost checkar ni ut, säger hej då till Hanoi för den här gången och åker vidare mot Hạ Long för nästa kapitel av resan.</p>
+      </div>
+    </div>
+
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+    // ✈️ Resan: första flyget från Köpenhamn (räknar ned till avgång)
+    const targetDate = new Date(2026, 1, 7, 18, 10, 0);  // 7 feb 2026 kl 18:10
+
+    // 📅 Progress-baren ska börja räknas från 1 november 2025
+    const startDate = new Date(2025, 10, 1); // (månad 10 = november)
+
+    // 📌 Milstolpar (december 2025)
+    const milestones = [
+      {
+        title: "🎉 Julfest",
+        date: new Date(2025, 11, 6, 18, 0, 0), // 6 dec 2025
+        type: "party"
+      },
+      {
+        title: "🎄 Julafton",
+        date: new Date(2025, 11, 24, 0, 0, 0), // 24 dec 2025
+        type: "christmas"
+      },
+      {
+        title: "🎆 Nyårsafton",
+        date: new Date(2025, 11, 31, 0, 0, 0), // 31 dec 2025
+        type: "newyear"
+      }
+    ];
+
+    function formatDate(date) {
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, "0");
+      const day = date.getDate().toString().padStart(2, "0");
+      return `${day}/${month} ${year}`;
+    }
+
+    function formatTimeLeft(diff) {
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      if (days < 0) return "✓ Klar";
+      if (days === 0) return "Idag!";
+      return `${days} dagar kvar`;
+    }
+
+    function renderMilestones() {
+      const container = document.getElementById("milestoneList");
+      container.innerHTML = "";
+
+      const sorted = [...milestones].sort((a, b) => a.date - b.date);
+      const now = new Date();
+
+      sorted.forEach(ms => {
+        const diff = ms.date - now;
+        const isPast = diff < 0;
+
+        const wrapper = document.createElement("div");
+        wrapper.className = `milestone milestone--${ms.type} ${isPast ? "past" : ""}`.trim();
+
+        const dot = document.createElement("div");
+        dot.className = "milestone-dot";
+
+        const content = document.createElement("div");
+        content.className = "milestone-content";
+
+        const title = document.createElement("div");
+        title.className = "milestone-title";
+        title.textContent = ms.title;
+
+        const meta = document.createElement("div");
+        meta.className = "milestone-meta";
+
+        const dateEl = document.createElement("div");
+        dateEl.className = "milestone-date";
+        dateEl.textContent = formatDate(ms.date);
+
+        const timeLeftEl = document.createElement("div");
+        timeLeftEl.className = "milestone-timeleft";
+        timeLeftEl.textContent = formatTimeLeft(diff);
+
+        meta.appendChild(dateEl);
+        meta.appendChild(timeLeftEl);
+        content.appendChild(title);
+        content.appendChild(meta);
+        wrapper.appendChild(dot);
+        wrapper.appendChild(content);
+        container.appendChild(wrapper);
+      });
+    }
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+    const messageEl = document.getElementById("message");
+    const weeksTextEl = document.getElementById("weeksText");
+    const progressFillEl = document.getElementById("progressFill");
+    const progressPercentageEl = document.getElementById("progressPercentage");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        daysEl.textContent = 0;
+        hoursEl.textContent = 0;
+        minutesEl.textContent = 0;
+        secondsEl.textContent = 0;
+        weeksTextEl.textContent = "Resan har börjat! 🎉";
+        progressFillEl.style.width = "100%";
+        progressPercentageEl.textContent = "100% klart";
+        messageEl.textContent = "Nu kör vi! 🇻🇳✈️";
+        renderMilestones();
+        return;
+      }
+
+      const seconds = Math.floor(diff / 1000);
+      const minutes = Math.floor(seconds / 60);
+      const hours = Math.floor(minutes / 60);
+      const days = Math.floor(hours / 24);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = (hours % 24).toString().padStart(2, "0");
+      minutesEl.textContent = (minutes % 60).toString().padStart(2, "0");
+      secondsEl.textContent = (seconds % 60).toString().padStart(2, "0");
+
+      const weeks = Math.floor(days / 7);
+      const remainingDays = days % 7;
+      weeksTextEl.textContent = `≈ ${weeks} veckor och ${remainingDays} dagar kvar`;
+
+      const totalDiff = targetDate - startDate;
+      let progress = (now - startDate) / totalDiff;
+      progress = Math.min(Math.max(progress, 0), 1);
+
+      const percent = Math.round(progress * 100);
+      progressFillEl.style.width = percent + "%";
+      progressPercentageEl.textContent = percent + "% klart";
+
+      messageEl.textContent = "Snart bär det av! 🧳";
+
+      renderMilestones();
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
