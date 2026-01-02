@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vietnam – Mat & aktiviteter</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    .container {
+      background: white;
+      padding: 1.6rem 2rem 2.2rem;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      max-width: 1020px;
+      width: 100%;
+    }
+
+    /* ===== Topmeny ===== */
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 0.75rem;
+      border: 1px solid #eef1f6;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0.6rem;
+      z-index: 10;
+      margin-bottom: 1.2rem;
+    }
+
+    .topnav-left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: #0f172a;
+      padding: 0.25rem 0.45rem;
+      border-radius: 10px;
+      background: #f8fafc;
+      border: 1px solid #eef1f6;
+      margin-right: 0.25rem;
+      white-space: nowrap;
+    }
+
+    .navlink {
+      text-decoration: none;
+      font-size: 0.85rem;
+      color: #1d4ed8;
+      background: #eef4ff;
+      border: 1px solid #dbe7ff;
+      padding: 0.32rem 0.55rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .navlink.active {
+      color: #0f172a;
+      background: #f1f5f9;
+      border-color: #e5e7eb;
+      font-weight: 700;
+    }
+
+    .topnav-right {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      color: #334155;
+      background: #f8fafc;
+      border: 1px solid #eef1f6;
+      padding: 0.28rem 0.55rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    h1 { font-size: 1.4rem; margin: 0 0 0.25rem 0; }
+    .subtitle {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1.2rem;
+      line-height: 1.4;
+    }
+
+    h2 { margin-top: 1.8rem; font-size: 1.1rem; text-align: left; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0.6rem 0 0.3rem 0;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      color: #334155;
+    }
+
+    .chip--blue { border-color: #dbe7ff; background: #eef4ff; color: #1d4ed8; }
+    .chip--green { border-color: #ccebd7; background: #eaf8ef; color: #166534; }
+    .chip--orange { border-color: #ffd9c2; background: #fff1e8; color: #9a3412; }
+    .chip--yellow { border-color: #fde68a; background: #fffbeb; color: #92400e; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      margin-top: 0.8rem;
+    }
+    @media (min-width: 760px) { .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+    .card {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 0.95rem 1rem;
+      border: 1px solid #eef1f6;
+    }
+    .card.highlight {
+      border: 1px solid #d4e4ff;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+      background: #f8fbff;
+    }
+
+    .title {
+      font-weight: 800;
+      font-size: 0.98rem;
+      margin-bottom: 0.25rem;
+      color: #0f172a;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    .tag {
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: #1d4ed8;
+      background: #eef4ff;
+      border: 1px solid #dbe7ff;
+      padding: 0.16rem 0.45rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .meta {
+      font-size: 0.86rem;
+      color: #475569;
+      margin-bottom: 0.25rem;
+      line-height: 1.35;
+    }
+
+    .desc {
+      font-size: 0.88rem;
+      color: #334155;
+      line-height: 1.45;
+    }
+
+    .small {
+      font-size: 0.82rem;
+      color: #64748b;
+      margin-top: 0.35rem;
+      line-height: 1.4;
+    }
+
+    details {
+      margin-top: 0.8rem;
+      background: #ffffff;
+      border: 1px solid #eef1f6;
+      border-radius: 12px;
+      padding: 0.7rem 0.8rem;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: #0f172a;
+      font-size: 0.95rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+    summary::-webkit-details-marker { display: none; }
+
+    .summary-right {
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: #1d4ed8;
+      background: #eef4ff;
+      border: 1px solid #dbe7ff;
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    ul {
+      margin: 0.7rem 0 0.1rem 1.1rem;
+      padding: 0;
+      color: #334155;
+      line-height: 1.5;
+      font-size: 0.9rem;
+    }
+    li { margin: 0.25rem 0; }
+
+    .divider {
+      height: 1px;
+      background: #eef1f6;
+      margin: 1.4rem 0 0.2rem 0;
+    }
+
+    /* Mobil */
+    @media (max-width: 600px) {
+      body { padding: 0.5rem; }
+      .container { padding: 1.2rem 1.05rem 1.6rem; border-radius: 0.75rem; }
+      h1 { font-size: 1.25rem; }
+      .subtitle { font-size: 0.9rem; }
+      .title { font-size: 0.95rem; }
+      .desc { font-size: 0.86rem; }
+      summary { font-size: 0.92rem; }
+      .topnav { top: 0.4rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- MENY (läggs också på andra sidor) -->
+     <nav class="nav">
+      <a href="index.html">⏳ Till nedräkning</a>
+      <a href="valuta.html">valuta</a>
+    </nav>
+
+    <h1>Vietnam – Mat & aktiviteter</h1>
+    <div class="subtitle">
+      Kompletterar er agenda (Hanoi 8–11 feb, Hạ Long 11–16 feb, Phú Quốc 16–26 feb, Hanoi 26 feb–2 mars).<br />
+      Här ligger <strong>extra aktiviteter</strong> + <strong>matområden</strong> + <strong>shoppingområden</strong> + <strong>restaurangförslag</strong> så ni slipper dubbletter i dag-för-dag-planen.
+    </div>
+
+    <div class="chips">
+      <span class="chip chip--blue">🏮 Hanoi</span>
+      <span class="chip chip--green">🚤 Hạ Long</span>
+      <span class="chip chip--orange">🏝️ Phú Quốc</span>
+      <span class="chip chip--yellow">🎆 Nyår</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- NYÅR -->
+    <h2>🎆 Nyår – om det är något speciellt</h2>
+    <div class="grid">
+      <div class="card highlight">
+        <div class="title">31 december – Nyårsafton <span class="tag">Planering</span></div>
+        <div class="desc">
+          Om ni firar ute: många restauranger blir fullbokade och vissa kör set-meny. Bra att boka bord i tid och planera transport hem.
+        </div>
+        <div class="small">Idéer: “middag + utsiktspunkt”, eller hemma-nyår med vietnamesiskt tema (bánh mì/pho + vietnamesiskt kaffe).</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- HANOI START -->
+    <h2>🏮 Hanoi (start) – Mat (områden)</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="title">Old Quarter (Hoàn Kiếm) <span class="tag">Streetfood</span></div>
+        <div class="meta">Område: runt hotellet / gamla stan</div>
+        <div class="desc">Phở, bún chả, bánh mì, egg coffee. Perfekt första kvällen: gå runt och plocka lite av allt.</div>
+      </div>
+      <div class="card">
+        <div class="title">Tạ Hiện / “Beer Street” <span class="tag">Kvällspuls</span></div>
+        <div class="meta">Område: Old Quarter</div>
+        <div class="desc">Smårätter, grill, snacks och “bia hơi”. Mer puls än “sitta länge”.</div>
+      </div>
+      <div class="card">
+        <div class="title">French Quarter (Tràng Tiền) <span class="tag">Lugnare</span></div>
+        <div class="meta">Område: söder om Hoan Kiem-sjön</div>
+        <div class="desc">Caféer, dessert, AC och lite “finare” ställen. Bra för paus från myllret.</div>
+      </div>
+      <div class="card">
+        <div class="title">West Lake (Tây Hồ) <span class="tag">Kvällsvibe</span></div>
+        <div class="meta">Område: taxi 10–20 min</div>
+        <div class="desc">Sjöpromenad + restauranger/caféer. Bra för lugn middag och “sista dagen i stan”-känsla.</div>
+      </div>
+    </div>
+
+    <h2>🏮 Hanoi (start) – Restaurangförslag</h2>
+    <div class="grid two">
+      <div class="card highlight">
+        <div class="title">Phở (nudelsoppa) – välj 1–2 <span class="tag">Klassiker</span></div>
+        <div class="desc">
+          <ul>
+            <li><strong>Phở Bát Đàn</strong> – klassisk phở, populärt.</li>
+            <li><strong>Phở Thìn (Lò Đúc)</strong> – känd stil, ofta mycket folk.</li>
+            <li><strong>Phở 10 Lý Quốc Sư</strong> – “trygg” phở nära centrala områden.</li>
+          </ul>
+        </div>
+        <div class="small">Tips: gå tidigt eller sent för mindre kö. Perfekt lunch efter sightseeing.</div>
+      </div>
+
+      <div class="card highlight">
+        <div class="title">Bún chả (grillat + nudlar) <span class="tag">Måste-testas</span></div>
+        <div class="desc">
+          <ul>
+            <li><strong>Bún Chả Hương Liên</strong> – superkänd (”Obama”-stället).</li>
+            <li><strong>Bún Chả Đắc Kim</strong> – vanligt tips i Old Quarter.</li>
+          </ul>
+        </div>
+        <div class="small">Bra middag eller lunch när ni är i Old Quarter.</div>
+      </div>
+
+      <div class="card">
+        <div class="title">Bánh mì (vietnamesisk baguette) <span class="tag">Snabbt</span></div>
+        <div class="desc">
+          <ul>
+            <li><strong>Banh Mi 25</strong> – populär och enkel.</li>
+            <li><strong>Banh Mi Pate</strong> (lokala småstånd) – bra “på språng”.</li>
+          </ul>
+        </div>
+        <div class="small">Perfekt när ni vill äta snabbt och fortsätta.</div>
+      </div>
+
+      <div class="card">
+        <div class="title">Café & dessert <span class="tag">Mys</span></div>
+        <div class="desc">
+          <ul>
+            <li><strong>Giảng Café</strong> – klassisk egg coffee-känsla.</li>
+            <li><strong>Cong Caphe</strong> – kedja med “retro”-vibe, bra för paus.</li>
+            <li><strong>Tràng Tiền Ice Cream</strong> – enkel, klassisk glass nära sjön.</li>
+          </ul>
+        </div>
+        <div class="small">Bra “mellanaktivitet” om barnen behöver paus.</div>
+      </div>
+    </div>
+
+    <h2>🏮 Hanoi (start) – Shopping (områden)</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="title">Old Quarter-gator <span class="tag">Strosa</span></div>
+        <div class="meta">Typ: souvenirer, småbutiker, kläder</div>
+        <div class="desc">Kul att gå runt och spontanköpa smått (presenter, snacks, enkla kläder).</div>
+      </div>
+      <div class="card">
+        <div class="title">Đồng Xuân Market <span class="tag">Marknad</span></div>
+        <div class="meta">Typ: textil, väskor, snacks</div>
+        <div class="desc">Mer “marknadsfynd” än boutique. Bra om ni vill köpa mycket på en gång.</div>
+      </div>
+      <div class="card">
+        <div class="title">Hàng Gai / “Silk Street” <span class="tag">Siden</span></div>
+        <div class="meta">Typ: scarves, presentkänsla</div>
+        <div class="desc">Bra om ni vill köpa något som känns lite “finare”.</div>
+      </div>
+      <div class="card">
+        <div class="title">Tràng Tiền Plaza <span class="tag">Mall</span></div>
+        <div class="meta">Typ: AC, ordning</div>
+        <div class="desc">Skönt om ni vill slippa trängsel/prut och bara gå runt.</div>
+      </div>
+    </div>
+
+    <h2>🏮 Hanoi (start) – Extra aktiviteter (utan dubbletter)</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="title">St Joseph’s Cathedral + café <span class="tag">Kort stopp</span></div>
+        <div class="desc">En “mellan-aktivitet” när ni vill ha något lätt mellan museum och kväll.</div>
+      </div>
+      <div class="card">
+        <div class="title">Thăng Long Imperial Citadel <span class="tag">Historia</span></div>
+        <div class="desc">Bra alternativ om ni vill ha mer historia utöver Hoa Lo.</div>
+      </div>
+      <div class="card">
+        <div class="title">Observation deck / utsikt <span class="tag">Wow</span></div>
+        <div class="desc">Kul om vädret är klart och ni vill ha ett snabbt “wow” utan heldagsutflykt.</div>
+      </div>
+      <div class="card">
+        <div class="title">Café-hop + egg coffee <span class="tag">Lugn</span></div>
+        <div class="desc">Perfekt återhämtning efter Bao Son/Train Street.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- HALONG -->
+    <h2>🚤 Hạ Long – Mat (områden)</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="title">Bãi Cháy waterfront <span class="tag">Seafood</span></div>
+        <div class="meta">Typ: skaldjur & grill</div>
+        <div class="desc">Räkor, krabba, fisk. Många ställen där ni väljer råvara och får det tillagat.</div>
+      </div>
+      <div class="card">
+        <div class="title">Night Market-området <span class="tag">Snacks</span></div>
+        <div class="meta">Typ: snabbt, dessert</div>
+        <div class="desc">Bra när ni vill äta enkelt efter dagkryssning eller Sun World.</div>
+      </div>
+    </div>
+
+    <h2>🚤 Hạ Long – Restaurangförslag</h2>
+    <div class="grid two">
+      <div class="card highlight">
+        <div class="title">Seafood-kväll (”peka och välj”) <span class="tag">Mest prisvärt</span></div>
+        <div class="desc">
+          <ul>
+            <li><strong>Lokala seafood-restauranger i Bãi Cháy</strong> – välj fisk/räkor/krabba och få tillagat.</li>
+            <li><strong>Seafood vid waterfront</strong> – bra för solnedgångsmiddag.</li>
+          </ul>
+        </div>
+        <div class="small">Tips: beställ 2–3 rätter att dela (ris + grönsaker + seafood).</div>
+      </div>
+      <div class="card">
+        <div class="title">Snacks/kvällsmat <span class="tag">Efter aktivitet</span></div>
+        <div class="desc">
+          <ul>
+            <li><strong>Night Market (matstånd)</strong> – lätt att prova många småsaker.</li>
+            <li><strong>Enkel nudelsoppa</strong> – bra “fallback” efter lång dag.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>🚤 Hạ Long – Shopping</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="title">Night Market <span class="tag">Souvenir</span></div>
+        <div class="meta">Typ: souvenirer, enklare kläder</div>
+        <div class="desc">Semester-shopping och små presenter.</div>
+      </div>
+      <div class="card">
+        <div class="title">Vincom Plaza <span class="tag">Mall</span></div>
+        <div class="meta">Typ: AC, paus</div>
+        <div class="desc">Bra vid regn eller när ni vill ha “ordning och reda”.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PHU QUOC -->
+    <h2>🏝️ Phú Quốc – Mat (områden)</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="title">Dương Đông (centrum) <span class="tag">Blandat</span></div>
+        <div class="desc">Bra för “välja på plats”: nudlar, seafood, frukt, dessert. Mycket att prova.</div>
+      </div>
+      <div class="card">
+        <div class="title">Long Beach / resort-området <span class="tag">Lugn</span></div>
+        <div class="desc">Bra för familjevänligt, sitta länge, solnedgångsmiddag.</div>
+      </div>
+      <div class="card">
+        <div class="title">Dương Đông Night Market <span class="tag">Kväll</span></div>
+        <div class="desc">Mat + shopping i ett. Perfekt 2–3 timmar.</div>
+      </div>
+      <div class="card">
+        <div class="title">Seafood “peka och välj” <span class="tag">Upplevelse</span></div>
+        <div class="desc">Välj råvara och få tillagat. Kul och ofta supergott.</div>
+      </div>
+    </div>
+
+    <h2>🏝️ Phú Quốc – Restaurangförslag</h2>
+    <div class="grid two">
+      <div class="card highlight">
+        <div class="title">Kväll: Night Market-middag <span class="tag">Enkelt</span></div>
+        <div class="desc">
+          <ul>
+            <li><strong>Duong Dong Night Market</strong> – testa seafood, grillspett, frukt, dessert.</li>
+            <li><strong>Färskpressat + kokos</strong> – bra “bonus” till barnen.</li>
+          </ul>
+        </div>
+        <div class="small">Tips: börja med 1–2 små rätter, fyll på efterhand.</div>
+      </div>
+      <div class="card">
+        <div class="title">Lugn middag nära hotellet <span class="tag">Fallback</span></div>
+        <div class="desc">
+          <ul>
+            <li><strong>Resort-restaurangen</strong> – perfekt när ni vill ha det smidigt.</li>
+            <li><strong>Long Beach-restauranger</strong> – ofta bra för solnedgång + barnvänligt.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>🏝️ Phú Quốc – Shopping</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="title">Dương Đông Night Market <span class="tag">Souvenir</span></div>
+        <div class="meta">Typ: souvenirer, snacks, enklare kläder</div>
+        <div class="desc">Mer “semesterfynd” än lyx. Bra för små presenter och gott att ta med.</div>
+      </div>
+      <div class="card">
+        <div class="title">Centrum (praktisk shopping) <span class="tag">Praktiskt</span></div>
+        <div class="meta">Typ: solhattar, bad, smågrejer</div>
+        <div class="desc">Bra om ni behöver komplettera något (solkräm, badgrejer, sandaler).</div>
+      </div>
+    </div>
+
+    <h2>🏝️ Phú Quốc – Extra aktiviteter (fyllt på)</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="title">Sao Beach <span class="tag">Vykort</span></div>
+        <div class="desc">Bra “wow-dag” om ni vill ha supervit sand och riktigt strandigt.</div>
+      </div>
+      <div class="card">
+        <div class="title">Snorkling / båttur <span class="tag">Reserv</span></div>
+        <div class="desc">Perfekt reservdag om ni inte bara vill poola. Enkelt att boka på plats.</div>
+      </div>
+      <div class="card">
+        <div class="title">Massage / spa <span class="tag">Återhämtning</span></div>
+        <div class="desc">Särskilt bra efter VinWonders/Safari eller om vädret är “meh”.</div>
+      </div>
+      <div class="card">
+        <div class="title">Solnedgångspromenad <span class="tag">Gratis</span></div>
+        <div class="desc">Alltid värt. Kombinera med middag vid stranden.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- HANOI END -->
+    <h2>🏮 Hanoi (slutet) – Mat (26 feb–2 mars)</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="title">Old Quarter / Hoan Kiem <span class="tag">Tryggt</span></div>
+        <div class="desc">Återvänd till favoriter: phở/bún chả/bánh mì + dessert. Perfekt sista dagarna.</div>
+      </div>
+      <div class="card">
+        <div class="title">West Lake (Tây Hồ) <span class="tag">Lugn</span></div>
+        <div class="desc">Mindre myller och mer “avslutningskänsla”. Bra för kvällspromenad + middag.</div>
+      </div>
+      <div class="card">
+        <div class="title">French Quarter <span class="tag">Finare</span></div>
+        <div class="desc">Passar bra för “sista riktigt bra middagen” där ni sitter länge.</div>
+      </div>
+      <div class="card">
+        <div class="title">Café + dessert <span class="tag">Mys</span></div>
+        <div class="desc">Egg coffee, vietnamesiskt kaffe, dessert – perfekt när ni vill ta det lugnt.</div>
+      </div>
+    </div>
+
+    <h2>🏮 Hanoi (slutet) – Restaurangförslag</h2>
+    <div class="grid two">
+      <div class="card highlight">
+        <div class="title">”Sista-3”-lista (om ni vill repetera favoriter) <span class="tag">Smart</span></div>
+        <div class="desc">
+          <ul>
+            <li><strong>Phở</strong>: Phở 10 Lý Quốc Sư / Phở Thìn / Phở Bát Đàn (välj en favorit).</li>
+            <li><strong>Bún chả</strong>: Hương Liên eller Đắc Kim.</li>
+            <li><strong>Café</strong>: Giảng Café eller Cong Caphe.</li>
+          </ul>
+        </div>
+        <div class="small">Sista dagarna är perfekta för “repeat the best”.</div>
+      </div>
+      <div class="card">
+        <div class="title">Avslutningsmiddag (lugn) <span class="tag">Kväll</span></div>
+        <div class="desc">
+          <ul>
+            <li><strong>French Quarter</strong> – välj något lugnt och “sitt länge”.</li>
+            <li><strong>West Lake</strong> – middag + promenad, riktigt bra avslut.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>🏮 Hanoi (slutet) – Shopping</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="title">Đồng Xuân Market <span class="tag">Presenter</span></div>
+        <div class="desc">Bra för sista inköp. Gå gärna tidigt för mindre trängsel.</div>
+      </div>
+      <div class="card">
+        <div class="title">Hàng Gai / Silk Street <span class="tag">Siden</span></div>
+        <div class="desc">Bra om ni vill köpa något pack-vänligt och “fin present”.</div>
+      </div>
+      <div class="card">
+        <div class="title">Tràng Tiền Plaza <span class="tag">AC</span></div>
+        <div class="desc">Perfekt om ni vill undvika marknadsstress sista dagarna.</div>
+      </div>
+      <div class="card">
+        <div class="title">Småköp att ta med <span class="tag">Packvänligt</span></div>
+        <div class="desc">Snacks, kaffe, smågåvor som inte väger mycket.</div>
+      </div>
+    </div>
+
+    <h2>🏮 Hanoi (slutet) – Fler aktiviteter (sista dagarna)</h2>
+    <div class="grid two">
+      <div class="card">
+        <div class="title">West Lake-runda <span class="tag">Halvdag</span></div>
+        <div class="desc">Lugn halvdagsgrej som passar perfekt efter en intensiv resa.</div>
+      </div>
+      <div class="card">
+        <div class="title">Spa/massage + pool <span class="tag">Återhämtning</span></div>
+        <div class="desc">Kanon inför hemresa. Bra “plan B” oavsett väder.</div>
+      </div>
+      <div class="card">
+        <div class="title">Kvällsfoto + dessert <span class="tag">Mys</span></div>
+        <div class="desc">Gör en “sista kväll”-promenad + glass/kaffe/dessert.</div>
+      </div>
+      <div class="card">
+        <div class="title">Pack- & fix-dag <span class="tag">Smart</span></div>
+        <div class="desc">Planera lugn shopping + packning + tidig middag dagen före flyget.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <details>
+      <summary>✅ Dubblettkontroll (vad jag undvikit) <span class="summary-right">Visa</span></summary>
+      <ul>
+        <li>Jag har inte lagt in “shopping i Old Quarter” som dagsaktivitet – det ligger här som område.</li>
+        <li>Night Market är beskrivet som område + restaurangidé, inte utsmetat på flera dagar.</li>
+        <li>Aktiviteter som redan finns i er agenda är inte duplicerade här – bara kompletterade med fler val.</li>
+      </ul>
+    </details>
+
+  </div>
+</body>
+</html>
