@@ -2,7 +2,8 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
   <title>Valuta – VND ⇄ SEK</title>
   <style>
     body{
@@ -15,6 +16,11 @@
       justify-content:center;
       padding:1rem;
     }
+button, .btn, .quick-btn, input, select, a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
     .container{
       background:#fff;
       width:100%;
@@ -110,6 +116,27 @@
       font-size:.82rem;
       color:#64748b;
     }
+.quick-btn {
+  font-size: 1rem;          /* större text */
+  font-weight: 800;
+  padding: 0.8rem 1rem;     /* större klickyta */
+  border-radius: 14px;
+  min-height: 48px;         /* bra för mobil */
+  min-width: 92px;          /* gör dem “chunky” */
+  border: 1px solid #dbe7ff;
+  background: #eef4ff;
+  color: #1d4ed8;
+  cursor: pointer;
+}
+
+@media (min-width: 760px) {
+  .quick-btn {
+    font-size: 1.05rem;
+    padding: 0.85rem 1.1rem;
+    min-width: 110px;
+  }
+}
+
 
     .toast{
       margin-top:.75rem;
@@ -143,10 +170,10 @@
 
           <div class="row">
             <div class="btns">
-              <button class="primary" data-add="50000">+50k</button>
-              <button class="primary" data-add="100000">+100k</button>
-              <button class="primary" data-add="500000">+500k</button>
-              <button data-add="1000000">+1M</button>
+              <button class="quick-btn" data-add="50000">+50k</button>
+              <button class="quick-btn" data-add="100000">+100k</button>
+              <button class="quick-btn" data-add="500000">+500k</button>
+              <button class="quick-btn" data-add="1000000">+1M</button>
             </div>
           </div>
         </div>
