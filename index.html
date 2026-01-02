@@ -22,19 +22,16 @@
       border-radius: 18px;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
       text-align: center;
-      max-width: 820px;
+      max-width: 980px;
       width: 100%;
     }
 
-    h1 {
-      font-size: 1.4rem;
-      margin-bottom: 0.25rem;
-    }
+    h1 { font-size: 1.4rem; margin-bottom: 0.25rem; }
 
     .subtitle {
       font-size: 0.95rem;
       color: #666;
-      margin-bottom: 1.8rem;
+      margin-bottom: 0.9rem;
     }
 
     .timer {
@@ -51,11 +48,7 @@
       padding: 0.9rem 0.5rem;
     }
 
-    .time-value {
-      font-size: 1.6rem;
-      font-weight: 600;
-    }
-
+    .time-value { font-size: 1.6rem; font-weight: 600; }
     .time-label {
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -64,23 +57,15 @@
       margin-top: 0.3rem;
     }
 
-    .weeks-text {
-      font-size: 0.9rem;
-      color: #444;
-      margin-bottom: 1.2rem;
-    }
+    .weeks-text { font-size: 0.9rem; color: #444; margin-bottom: 1.2rem; }
 
     .progress-wrapper {
       text-align: left;
       margin-top: 0.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
-    .progress-label {
-      font-size: 0.8rem;
-      color: #777;
-      margin-bottom: 0.3rem;
-    }
+    .progress-label { font-size: 0.8rem; color: #777; margin-bottom: 0.3rem; }
 
     .progress-bar {
       width: 100%;
@@ -105,114 +90,12 @@
       text-align: right;
     }
 
-    h2 {
-      margin-top: 2rem;
-      font-size: 1.1rem;
-      text-align: left;
-    }
+    h2 { margin-top: 2rem; font-size: 1.1rem; text-align: left; }
 
-    /* Milestones / vertical timeline */
-    .milestone-list {
-      margin-top: 1rem;
-      text-align: left;
-      position: relative;
-      padding-left: 1.6rem;
-    }
+    .message { font-size: 0.95rem; color: #444; margin-top: 1rem; text-align: left; }
 
-    .milestone-list::before {
-      content: "";
-      position: absolute;
-      left: 10px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: #e0e7ff;
-    }
-
-    .milestone {
-      position: relative;
-      margin-bottom: 1rem;
-      padding-left: 1rem;
-    }
-
-    .milestone-dot {
-      position: absolute;
-      left: -2px;
-      top: 0.3rem;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #4f8df5;
-      box-shadow: 0 0 0 3px rgba(79, 141, 245, 0.2);
-    }
-
-    .milestone-content {
-      background: #f8fafc;
-      padding: 0.7rem 0.9rem;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .milestone-title {
-      font-weight: 600;
-      color: #333;
-      font-size: 0.9rem;
-    }
-
-    .milestone-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: #555;
-    }
-
-    .milestone-date {
-      opacity: 0.9;
-    }
-
-    .milestone-timeleft {
-      font-style: italic;
-    }
-
-    .milestone.past .milestone-content {
-      opacity: 0.55;
-    }
-
-    .milestone.past .milestone-title {
-      text-decoration: line-through;
-    }
-
-    .milestone--party .milestone-dot {
-      background: #f97316;
-      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
-    }
-
-    .milestone--christmas .milestone-dot {
-      background: #16a34a;
-      box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.25);
-    }
-
-    .milestone--newyear .milestone-dot {
-      background: #eab308;
-      box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.25);
-    }
-
-    .message {
-      font-size: 0.95rem;
-      color: #444;
-      margin-top: 1rem;
-      text-align: left;
-    }
-
-    /* Info-sektioner (flyg + hotell + destination) */
-    .info-section {
-      margin-top: 1.5rem;
-      text-align: left;
-    }
-
+    /* Info-sektioner */
+    .info-section { margin-top: 1.5rem; text-align: left; }
     .info-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -221,9 +104,7 @@
     }
 
     @media (min-width: 640px) {
-      .info-grid--two {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .info-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     .info-card {
@@ -237,220 +118,920 @@
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
     }
 
-    .info-title {
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 0.2rem;
+    .info-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .info-subtitle { font-size: 0.85rem; color: #555; margin-bottom: 0.3rem; }
+    .info-dates { font-size: 0.85rem; color: #444; }
+    .info-price { font-size: 0.85rem; color: #1d4ed8; font-weight: 600; margin-top: 0.25rem; }
+    .info-note { font-size: 0.82rem; color: #6b7280; margin-top: 0.35rem; line-height: 1.35; }
+
+    .info-text p { margin: 0.3rem 0; font-size: 0.9rem; color: #444; text-align: left; }
+    .info-text ul { margin: 0.35rem 0 0.6rem 1.1rem; padding: 0; }
+    .info-text li { margin: 0.2rem 0; }
+
+    /* ====== Agenda ====== */
+    .agenda-shell { margin-top: 1.2rem; text-align: left; }
+
+    .mini-nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border: 1px solid #eef1f6;
+      border-radius: 14px;
+      padding: 0.6rem 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
     }
 
-    .info-subtitle {
-      font-size: 0.85rem;
-      color: #555;
-      margin-bottom: 0.3rem;
-    }
-
-    .info-dates {
-      font-size: 0.85rem;
-      color: #444;
-    }
-
-    .info-price {
-      font-size: 0.85rem;
+    .mini-nav a {
+      text-decoration: none;
+      font-size: 0.82rem;
       color: #1d4ed8;
-      font-weight: 600;
-      margin-top: 0.25rem;
+      background: #eef4ff;
+      padding: 0.35rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid #dbe7ff;
     }
 
-    .info-note {
+    .agenda-grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
+    @media (min-width: 760px) { .agenda-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+    .agenda-card {
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 1rem 1rem;
+      border: 1px solid #eef1f6;
+    }
+
+    .agenda-card h3 { margin: 0 0 0.25rem 0; font-size: 1rem; }
+
+    .agenda-meta {
+      color: #555;
+      font-size: 0.85rem;
+      margin-bottom: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
       font-size: 0.8rem;
-      color: #6b7280;
-      margin-top: 0.25rem;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      color: #334155;
+      white-space: nowrap;
     }
 
-    .info-text p {
-      margin: 0.3rem 0;
-      font-size: 0.9rem;
-      color: #444;
-      text-align: left;
+    .chip--blue { border-color: #dbe7ff; background: #eef4ff; color: #1d4ed8; }
+    .chip--green { border-color: #ccebd7; background: #eaf8ef; color: #166534; }
+    .chip--orange { border-color: #ffd9c2; background: #fff1e8; color: #9a3412; }
+    .chip--yellow { border-color: #fde68a; background: #fffbeb; color: #92400e; }
+
+    .agenda-line { font-size: 0.88rem; color: #334155; margin: 0.25rem 0; }
+
+    details.day {
+      background: #ffffff;
+      border: 1px solid #eef1f6;
+      border-radius: 14px;
+      padding: 0.65rem 0.75rem;
+      margin-top: 0.55rem;
+      overflow: hidden;
     }
 
-    /* 📱 Mobilanpassning */
+    details.day[open] { box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06); }
+
+    summary.day__summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    summary.day__summary::-webkit-details-marker { display:none; }
+
+    .day__left { display: flex; flex-direction: column; gap: 0.15rem; }
+
+    .day__title { font-weight: 700; font-size: 0.92rem; color: #0f172a; }
+
+    .day__sub {
+      font-size: 0.82rem;
+      color: #475569;
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .day__date { font-variant-numeric: tabular-nums; opacity: 0.95; }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f8fafc;
+      color: #334155;
+      white-space: nowrap;
+    }
+
+    .badge--today { border-color: #fbbf24; background: #fffbeb; color: #92400e; }
+    .badge--done { border-color: #bbf7d0; background: #ecfdf5; color: #166534; }
+    .badge--upcoming { border-color: #dbe7ff; background: #eef4ff; color: #1d4ed8; }
+
+    .day__body {
+      margin-top: 0.6rem;
+      border-top: 1px dashed #e5e7eb;
+      padding-top: 0.6rem;
+    }
+
+    .bullet {
+      margin: 0.35rem 0;
+      font-size: 0.88rem;
+      color: #334155;
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+
+    .bullet span.icon {
+      width: 1.2rem;
+      flex: 0 0 1.2rem;
+      text-align: center;
+    }
+
+    .small-note { margin-top: 0.5rem; font-size: 0.82rem; color: #64748b; }
+    .divider { height: 1px; background: #eef1f6; margin: 1.2rem 0; }
+
+    /* Små länkar/knappar */
+    .map-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+    }
+
+    .map-links a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      color: #1d4ed8;
+      background: #eef4ff;
+      padding: 0.28rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid #dbe7ff;
+    }
+
+    .map-links a:hover { filter: brightness(0.98); }
+
+    /* ====== Packlista ====== */
+    .pack-shell { text-align: left; margin-top: 1.2rem; }
+    .pack-card {
+      background: #f8fafc;
+      border: 1px solid #eef1f6;
+      border-radius: 14px;
+      padding: 1rem 1rem;
+    }
+
+    .pack-top {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.7rem;
+    }
+
+    .pack-progress {
+      font-size: 0.85rem;
+      color: #475569;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .pack-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+    .btn {
+      font-size: 0.82rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      padding: 0.35rem 0.6rem;
+      cursor: pointer;
+      color: #0f172a;
+    }
+
+    .btn:hover { filter: brightness(0.98); }
+
+    .pack-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+      margin-top: 0.4rem;
+    }
+
+    @media (min-width: 760px) {
+      .pack-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .pack-item {
+      background: #fff;
+      border: 1px solid #eef1f6;
+      border-radius: 12px;
+      padding: 0.55rem 0.65rem;
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+    }
+
+    .pack-item input { margin-top: 0.15rem; }
+
+    .pack-item label { font-size: 0.88rem; color: #334155; cursor: pointer; }
+
+    .pack-item small {
+      display: block;
+      color: #64748b;
+      margin-top: 0.15rem;
+      font-size: 0.78rem;
+    }
+
+    .pack-item.done { opacity: 0.7; }
+    .pack-item.done label { text-decoration: line-through; }
+
+    /* Dölj-block */
+    .hidden { display: none !important; }
+
+    /* 📱 Mobil */
     @media (max-width: 600px) {
-      body {
-        padding: 0.5rem;
-        align-items: flex-start;
-      }
-
-      .countdown-container {
-        padding: 1.5rem 1.1rem;
-        border-radius: 0.75rem;
-      }
-
-      h1 {
-        font-size: 1.25rem;
-      }
-
-      .subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 1.2rem;
-      }
-
-      .timer {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .time-block {
-        padding: 0.7rem 0.5rem;
-      }
-
-      .time-value {
-        font-size: 1.4rem;
-      }
-
-      .weeks-text {
-        font-size: 0.85rem;
-      }
-
-      .progress-label,
-      .progress-percentage {
-        font-size: 0.75rem;
-      }
-
-      .milestone-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.1rem;
-      }
-
-      .info-card {
-        padding: 0.8rem 0.8rem;
-      }
-
-      .info-title {
-        font-size: 0.9rem;
-      }
-
-      .info-text p {
-        font-size: 0.85rem;
-      }
+      body { padding: 0.5rem; align-items: flex-start; }
+      .countdown-container { padding: 1.5rem 1.1rem; border-radius: 0.75rem; }
+      h1 { font-size: 1.25rem; }
+      .subtitle { font-size: 0.9rem; margin-bottom: 0.8rem; }
+      .timer { flex-direction: column; gap: 0.5rem; }
+      .time-block { padding: 0.7rem 0.5rem; }
+      .time-value { font-size: 1.4rem; }
+      .weeks-text { font-size: 0.85rem; }
+      .progress-label, .progress-percentage { font-size: 0.75rem; }
     }
   </style>
 </head>
+
 <body>
   <div class="countdown-container">
     <h1>Nedräkning till Vietnam</h1>
     <div class="subtitle">Avresa: 7 februari 2026 kl 18:10 från Köpenhamn ✈️🇻🇳</div>
 
-    <!-- Huvudnedräkning -->
-    <div class="timer">
-      <div class="time-block">
-        <div id="days" class="time-value">0</div>
-        <div class="time-label">Dagar</div>
-      </div>
-      <div class="time-block">
-        <div id="hours" class="time-value">0</div>
-        <div class="time-label">Timmar</div>
-      </div>
-      <div class="time-block">
-        <div id="minutes" class="time-value">0</div>
-        <div class="time-label">Minuter</div>
-      </div>
-      <div class="time-block">
-        <div id="seconds" class="time-value">0</div>
-        <div class="time-label">Sekunder</div>
-      </div>
+    <!-- Snabblänkar + Toggle (ligger OUTSIDE preTrip så den alltid syns) -->
+    <div class="map-links" style="margin: 0.55rem 0 1rem 0;">
+      <a href="valuta.html">💱 Valuta VND ⇄ SEK</a>
+      <a href="mat-aktiviteter.html">🍜 Mat & aktiviteter</a>
+      <a href="#agenda">🧭 Agenda</a>
+      <a href="#packlista">🎒 Packlista</a>
+      <button class="btn" id="togglePreTrip" type="button">📌 Visa nedräkning & info</button>
     </div>
 
-    <div id="weeksText" class="weeks-text"></div>
-
-    <div class="progress-wrapper">
-      <div class="progress-label">Resan närmar sig… (från 1 november 2025)</div>
-      <div class="progress-bar">
-        <div id="progressFill" class="progress-fill"></div>
+    <!-- ====== ALLT FÖRE AGENDA (auto-döljs efter avresa) ====== -->
+    <div id="preTrip">
+      <!-- Huvudnedräkning -->
+      <div class="timer">
+        <div class="time-block">
+          <div id="days" class="time-value">0</div>
+          <div class="time-label">Dagar</div>
+        </div>
+        <div class="time-block">
+          <div id="hours" class="time-value">0</div>
+          <div class="time-label">Timmar</div>
+        </div>
+        <div class="time-block">
+          <div id="minutes" class="time-value">0</div>
+          <div class="time-label">Minuter</div>
+        </div>
+        <div class="time-block">
+          <div id="seconds" class="time-value">0</div>
+          <div class="time-label">Sekunder</div>
+        </div>
       </div>
-      <div id="progressPercentage" class="progress-percentage"></div>
-    </div>
 
-    <!-- Milstolpar -->
-    <h2>📌 Kommande milstolpar</h2>
-    <div id="milestoneList" class="milestone-list"></div>
+      <div id="weeksText" class="weeks-text"></div>
 
-    <!-- Flyginfo -->
-    <div class="info-section">
-      <h2>✈️ Internationella flyg – klart</h2>
-      <div class="info-grid">
-        <div class="info-card info-card--highlight">
-          <div class="info-title">Utresa – 7–8 februari 2026</div>
-          <div class="info-subtitle">Allt med Turkish Airlines</div>
-          <div class="info-dates">
-            <strong>CPH → IST (TK1786)</strong><br />
-            Avgång: 18:10, 7 feb<br />
-            Ankomst: 23:25, 7 feb (SWE 21:25)
+      <div class="progress-wrapper">
+        <div class="progress-label">Resan närmar sig… (från 1 november 2025)</div>
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+        <div id="progressPercentage" class="progress-percentage"></div>
+      </div>
+
+      <!-- Flyginfo -->
+      <div class="info-section">
+        <h2>✈️ Internationella flyg – klart</h2>
+        <div class="info-grid">
+          <div class="info-card info-card--highlight">
+            <div class="info-title">Utresa – 7–8 februari 2026</div>
+            <div class="info-subtitle">Allt med Turkish Airlines</div>
+
+            <div class="info-dates">
+              <strong>CPH → IST (TK1786)</strong><br />
+              Avgång: 18:10, 7 feb<br />
+              Ankomst: 23:25, 7 feb (SWE 21:25)
+            </div>
+
+            <div class="info-dates" style="margin-top:0.4rem;">
+              <strong>IST → HAN (TK164)</strong><br />
+              Avgång: 02:25, 8 feb (SWE 00:25)<br />
+              Ankomst: 15:25, 8 feb (SWE 09:25)
+            </div>
           </div>
-          <div class="info-dates" style="margin-top:0.4rem;">
-            <strong>IST → HAN (TK164)</strong><br />
-            Avgång: 02:25, 8 feb (SWE 00:25)<br />
-            Ankomst: 15:25, 8 feb (SWE 09:25)
+        </div>
+      </div>
+
+      <!-- Hotellinfo bokat -->
+      <div class="info-section">
+        <h2>🏨 Hotell – bokat</h2>
+        <div class="info-grid info-grid--two">
+          <div class="info-card">
+            <div class="info-title">Hanoi – Royal Palace</div>
+            <div class="info-subtitle">8–11 feb (3 nätter)</div>
+            <div class="info-note">Perfekt start i Hanoi efter långresan.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-title">Phú Quốc – Le Forest</div>
+            <div class="info-subtitle">16–19 feb (3 nätter)</div>
+            <div class="info-note">Mjukstart på ön innan längre vistelse.</div>
+          </div>
+          <div class="info-card info-card--highlight">
+            <div class="info-title">Phú Quốc – Best Western Premier Sonasea</div>
+            <div class="info-subtitle">19–26 feb (7 nätter)</div>
+            <div class="info-note">Lång, härlig solvecka med riktigt bra standard. ☀️🏝️</div>
           </div>
         </div>
       </div>
+
+      <!-- Hotellinfo budget -->
+      <div class="info-section">
+        <h2>🏨 Hotell – kvar att boka / budget</h2>
+        <div class="info-grid info-grid--two">
+          <div class="info-card">
+            <div class="info-title">Hạ Long</div>
+            <div class="info-subtitle">11–16 feb (5 nätter)</div>
+            <div class="info-price">ca 5 000 – 8 000 kr</div>
+            <div class="info-note">Mellanklass med frukost & pool – bra bas mellan utflykterna.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-title">Hanoi – avslut</div>
+            <div class="info-subtitle">26 feb – 2 mars (5 nätter)</div>
+            <div class="info-price">ca 4 000 – 6 000 kr</div>
+            <div class="info-note">Sista dagarna i stan innan hemresa – mat, shopping och lugn.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hanoi-destination -->
+      <div class="info-section">
+        <h2>🏙️ Hanoi 8–11 februari 2026</h2>
+        <div class="info-card info-text">
+          <p><strong>Tre nätter i Vietnams charmiga huvudstad</strong></p>
+          <p>Hanoi är en av Asiens mest stämningsfulla städer – franska kolonialhus, vindlande gränder och street-food överallt.</p>
+          <p><strong>8 feb:</strong> ankomst 15:25, incheckning, lugn kväll.</p>
+          <p><strong>11 feb:</strong> vidare mot Hạ Long med minivan.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+    </div>
+    <!-- ====== SLUT preTrip ====== -->
+
+    <!-- ====== AGENDA ====== -->
+    <div class="info-section agenda-shell" id="agenda">
+      <h2>🧭 Hela resan – dag för dag (uppdaterad & slutgiltig)</h2>
+
+      <div class="mini-nav" aria-label="Snabbnavigering">
+        <a href="#hanoi-start">🏮 Hanoi (start)</a>
+        <a href="#halong">🚤 Hạ Long</a>
+        <a href="#phuquoc">🏝️ Phú Quốc</a>
+        <a href="#hanoi-end">🏮 Hanoi (slutet)</a>
+        <a href="#ninhbinh">🌾 Ninh Binh</a>
+        <a href="#packlista">🎒 Packlista</a>
+        <a href="#airalo-esim">📱 Airalo</a>
+      </div>
+
+      <div class="agenda-grid">
+
+        <!-- HANOI START -->
+        <section class="agenda-card" id="hanoi-start">
+          <h3>🏮 Hanoi (start) – 8–11 feb</h3>
+          <div class="agenda-meta">
+            <span class="chip chip--blue">Bas: Old Quarter</span>
+            <span class="chip">🏨 Hanoi Royal Palace Hotel 2</span>
+          </div>
+
+          <div class="map-links" aria-label="Kartlänkar Hanoi">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hoan+Kiem+Lake+Hanoi">🗺️ Hoan Kiem Lake</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hoa+Lo+Prison+Hanoi">🗺️ Hoa Lo Prison</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hanoi+Train+Street">🗺️ Train Street</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Thang+Long+Water+Puppet+Theatre">🗺️ Water Puppet Theatre</a>
+          </div>
+
+          <p class="agenda-line">Fokus: lugn start, klassiska Hanoi, historia + Train Street (ingen stress).</p>
+
+          <details class="day" data-date="2026-02-08">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Dag 1 – Söndag 8 feb</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-08</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--green">Tema: Ankomst & lugn kväll</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">✈️</span><div>Ankomst Hanoi <strong>15:25</strong> • Transfer 40–50 min</div></div>
+              <div class="bullet"><span class="icon">🏨</span><div>Incheckning: Hanoi Royal Palace Hotel 2</div></div>
+              <div class="bullet"><span class="icon">🍜</span><div>Mat nära hotellet (enkelt & tidigt pga jetlag)</div></div>
+              <div class="bullet"><span class="icon">🛌</span><div>Tidig kväll • vila</div></div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-02-09">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Dag 2 – Måndag 9 feb</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-09</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--blue">Tema: Klassiska Hanoi</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🚶</span><div>Hoan Kiem Lake (promenad)</div></div>
+              <div class="bullet"><span class="icon">🏮</span><div>Old Quarter (strosa runt)</div></div>
+              <div class="bullet"><span class="icon">🛍️</span><div>Shopping: kläder & souvenirer</div></div>
+              <div class="bullet"><span class="icon">🍦</span><div>Glass & kaffe (pauser under dagen)</div></div>
+              <div class="bullet"><span class="icon">🎭</span><div>Kväll: Water Puppet Show (valfritt)</div></div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-02-10">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Dag 3 – Tisdag 10 feb</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-10</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--orange">Tema: Historia & upplevelser</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🏛️</span><div>Hoa Lo Prison (Vietnamkriget) • 1–1,5 h</div></div>
+              <div class="bullet"><span class="icon">☕🚆</span><div>Train Street café (tåget) • bekräfta tågtid samma dag</div></div>
+              <div class="bullet"><span class="icon">🧘</span><div>Eftermiddag fri: café • vila • strosa</div></div>
+              <div class="bullet"><span class="icon">🍽️</span><div>Kväll: lokal restaurang</div></div>
+              <div class="small-note">⚠️ På Train Street: följ personalens instruktioner, barn alltid på café-sidan.</div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-02-11">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Dag 4 – Onsdag 11 feb</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-11</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--green">Tema: Avresa till Hạ Long</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🚐</span><div>Minivan via hotell • Hanoi → Hạ Long (2,5–3 h)</div></div>
+              <div class="bullet"><span class="icon">🏨</span><div>Incheckning hotell</div></div>
+              <div class="bullet"><span class="icon">🌙</span><div>Kväll: strandpromenad / night market</div></div>
+            </div>
+          </details>
+        </section>
+
+        <!-- HALONG -->
+        <section class="agenda-card" id="halong">
+          <h3>🚤 Hạ Long – 11–16 feb</h3>
+          <div class="agenda-meta">
+            <span class="chip chip--blue">Bas: Bai Chay</span>
+            <span class="chip">🌊 Bay + nöjen</span>
+          </div>
+
+          <div class="map-links" aria-label="Kartlänkar Hạ Long">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bai+Chay+Beach+Ha+Long">🗺️ Bai Chay Beach</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sun+World+Ha+Long+Complex">🗺️ Sun World</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ha+Long+Night+Market">🗺️ Night Market</a>
+          </div>
+
+          <p class="agenda-line">Fokus: halvdag-kryssning, Sun World, fri dag, reserv/packning.</p>
+
+          <details class="day" data-date="2026-02-12">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Torsdag 12 feb – Hạ Long Bay (HALVDAG)</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-12</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--blue">Tema: Kryssning 4–5 h</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🛳️</span><div>4–5 timmars kryssning: kalkstensklippor • kort kajak/grotta</div></div>
+              <div class="bullet"><span class="icon">🍱</span><div>Lunch ombord</div></div>
+              <div class="bullet"><span class="icon">🏊</span><div>Eftermiddag fri: pool/vila</div></div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-02-13">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Fredag 13 feb – Sun World</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-13</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--orange">Tema: Linbana & karuseller</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🚡</span><div>Linbana + utsikt över bukten</div></div>
+              <div class="bullet"><span class="icon">🎡</span><div>Karuseller (barnvänligt)</div></div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-02-14">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Lördag 14 feb – Fri dag</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-14</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--green">Tema: Strand & vila</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🏖️</span><div>Strand</div></div>
+              <div class="bullet"><span class="icon">🏊</span><div>Pool</div></div>
+              <div class="bullet"><span class="icon">😌</span><div>Vila</div></div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-02-15">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Söndag 15 feb – Reserv & packning</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-15</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--yellow">Tema: Ta det lugnt</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🧩</span><div>Extra vila eller liten utflykt</div></div>
+              <div class="bullet"><span class="icon">🎒</span><div>Packning inför flygdag</div></div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-02-16">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Måndag 16 feb – Tillbaka till Hanoi + flyg</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-16</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--blue">Tema: Transfer & flyg</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🚐</span><div>Minivan Hạ Long → Hanoi</div></div>
+              <div class="bullet"><span class="icon">✈️</span><div>Flyg Hanoi → Phú Quốc <strong>17:40–19:45</strong></div></div>
+              <div class="bullet"><span class="icon">🏨</span><div>Incheckning Phú Quốc</div></div>
+            </div>
+          </details>
+        </section>
+
+        <!-- PHU QUOC -->
+        <section class="agenda-card" id="phuquoc">
+          <h3>🏝️ Phú Quốc – 16–26 feb (ingen stress)</h3>
+          <div class="agenda-meta">
+            <span class="chip chip--green">16–19: Le Forest Resort</span>
+            <span class="chip chip--blue">19–26: Best Western Premier Sonasea</span>
+            <span class="chip">☀️ Strand • vila • lite shopping</span>
+          </div>
+
+          <div class="map-links" aria-label="Kartlänkar Phú Quốc">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Duong+Dong+Night+Market+Phu+Quoc">🗺️ Night Market</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=VinWonders+Phu+Quoc">🗺️ VinWonders</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vinpearl+Safari+Phu+Quoc">🗺️ Safari</a>
+          </div>
+
+          <p class="agenda-line">Medvetet: inga fler “måste-utflykter”. Välj 1–2 större grejer och fyll resten med strand, spa och återhämtning.</p>
+
+          <details class="day" data-date="2026-02-17">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Under perioden – enkel plan</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-17</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--green">Tema: Strand & pool</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🏖️</span><div>Strand & pool (nästan varje dag)</div></div>
+              <div class="bullet"><span class="icon">🌙</span><div>Night Market: <strong>1 kväll</strong> (middag + souvenirer)</div></div>
+              <div class="bullet"><span class="icon">🎢</span><div>VinWonders / vattenland: <strong>1 dag</strong></div></div>
+              <div class="bullet"><span class="icon">🦒</span><div>Safari (valfritt): om ni orkar</div></div>
+              <div class="bullet"><span class="icon">💆</span><div>Spa / vila: när ni vill</div></div>
+              <div class="bullet"><span class="icon">🛍️</span><div>Shopping: små inköp och souvenirer</div></div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-02-26">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Torsdag 26 feb – Flyg tillbaka till Hanoi</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-26</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--blue">Tema: Flyg</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">✈️</span><div>PQC → HAN <strong>08:40–10:45</strong></div></div>
+            </div>
+          </details>
+        </section>
+
+        <!-- HANOI END -->
+        <section class="agenda-card" id="hanoi-end">
+          <h3>🏮 Hanoi (slutet) – 26 feb–2 mars</h3>
+          <div class="agenda-meta">
+            <span class="chip chip--blue">Fokus: lugn avslutning</span>
+            <span class="chip">🛍️ Shopping & caféliv</span>
+            <span class="chip chip--green">📦 Paket hem</span>
+          </div>
+
+          <div class="map-links" aria-label="Kartlänkar Hanoi slut">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Old+Quarter+Hanoi">🗺️ Old Quarter</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=West+Lake+Hanoi">🗺️ West Lake</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vietnam+Post+Hanoi">🗺️ Vietnam Post</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vietnam+Military+History+Museum+Hanoi">🗺️ Military History Museum</a>
+          </div>
+
+          <p class="agenda-line">Fokus: lugna dagar, shopping, museum + fotboll, samt pack/utskick.</p>
+          <p class="info-note"><strong>📦 Plan:</strong> Sista dagarna i Hanoi skickar vi hem <strong>paket via posten</strong> så ni slipper bära hem allt i bagaget.</p>
+
+          <details class="day" data-date="2026-02-26">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Torsdag 26 feb – Tillbaka till Hanoi</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-26</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--green">Tema: Incheckning & vila</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🏨</span><div>Incheckning hotell • vila</div></div>
+              <div class="bullet"><span class="icon">☕</span><div>Enkel kväll: café / mat nära</div></div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-02-27">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Fredag 27 feb – Militärhistoria & ⚽ fotboll</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-27</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--orange">Tema: Museum + kväll</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🏛️</span><div>Vietnam Military History Museum</div></div>
+              <div class="bullet"><span class="icon">🛍️</span><div>Eftermiddag: shopping</div></div>
+
+              <!-- ✅ Fotboll + länkar -->
+              <div class="bullet">
+                <span class="icon">⚽</span>
+                <div>
+                  Kväll: fotboll (Hanoi FC / Viettel FC) • alt sportbar om ingen match
+                  <div class="map-links" style="margin-top:0.35rem;">
+                    <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=H%C3%A0ng+%C4%90%E1%BA%ABy+Stadium+Hanoi">🗺️ Hàng Đẫy Stadium</a>
+                    <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=M%E1%BB%B9+%C4%90%C3%ACnh+National+Stadium+Hanoi">🗺️ Mỹ Đình National Stadium</a>
+                    <a target="_blank" rel="noopener" href="https://www.google.com/search?q=Hanoi+FC+fixtures">🔎 Hanoi FC fixtures</a>
+                    <a target="_blank" rel="noopener" href="https://www.google.com/search?q=Viettel+FC+fixtures">🔎 Viettel FC fixtures</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-03-01">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Söndag 1 mars – Tillbaka till Hanoi</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-03-01</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--blue">Tema: Shopping & pack</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🚐</span><div>Minivan tillbaka till Hanoi (ca <strong>15–16</strong>)</div></div>
+              <div class="bullet"><span class="icon">🛍️</span><div>Sista shopping</div></div>
+              <div class="bullet"><span class="icon">🎒</span><div>Packning + ev. paket (Vietnam Post)</div></div>
+              <div class="bullet"><span class="icon">🍽️</span><div>Avslutningsmiddag</div></div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-03-02">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Måndag 2 mars – Hemresa</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-03-02</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--green">Tema: Lugn dag</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🧘</span><div>Lugn dag: café / sista småköp</div></div>
+              <div class="bullet"><span class="icon">🏨</span><div>Utcheckning</div></div>
+              <div class="bullet"><span class="icon">✈️</span><div>Flyg hem <strong>22:55</strong></div></div>
+            </div>
+          </details>
+        </section>
+
+        <!-- NINH BINH -->
+        <section class="agenda-card" id="ninhbinh">
+          <h3>🌾 Ninh Binh – 28 feb–1 mars (1 dag + 1 natt)</h3>
+          <div class="agenda-meta">
+            <span class="chip chip--green">🚐 Minivan</span>
+            <span class="chip">🛶 Trang An</span>
+            <span class="chip chip--blue">🎒 1-natt-packning</span>
+          </div>
+
+          <div class="map-links" aria-label="Kartlänkar Ninh Binh">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Trang+An+Ninh+Binh">🗺️ Trang An</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ninh+Binh+Vietnam">🗺️ Ninh Binh</a>
+          </div>
+
+          <p class="agenda-line">Upplägg: naturdag + lugn middag + en natt. Stora väskor lämnas på Hanoi-hotellet.</p>
+
+          <details class="day" data-date="2026-02-28">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Lördag 28 feb – Hanoi → Ninh Binh</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-28</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--orange">Tema: Naturdag</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🚐</span><div>Minivan Hanoi → Ninh Binh</div></div>
+              <div class="bullet"><span class="icon">🛶</span><div>Trang An båttur (bokas på plats)</div></div>
+              <div class="bullet"><span class="icon">🚲</span><div>Cykling / promenad i lugn miljö</div></div>
+              <div class="bullet"><span class="icon">🍽️</span><div>Middag • övernattning (barnvänligt hotell)</div></div>
+              <div class="small-note">📦 Stora väskor kvar på Hanoi-hotellet • 🎒 Endast 1-natt-packning.</div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-03-01">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Söndag 1 mars – Morgon i naturen → tillbaka</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-03-01</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--green">Tema: Lugn morgon</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🥐</span><div>Frukost</div></div>
+              <div class="bullet"><span class="icon">🌿</span><div>Morgon i naturen</div></div>
+              <div class="bullet"><span class="icon">🚐</span><div>Tillbaka till Hanoi (ankomst ca <strong>15–16</strong>)</div></div>
+            </div>
+          </details>
+        </section>
+
+      </div>
     </div>
 
-    <!-- Hotellinfo bokat -->
-    <div class="info-section">
-      <h2>🏨 Hotell – bokat</h2>
-      <div class="info-grid info-grid--two">
-        <div class="info-card">
-          <div class="info-title">Hanoi – Royal Palace</div>
-          <div class="info-subtitle">8–11 feb (3 nätter)</div>
-          <div class="info-note">Perfekt start i Hanoi efter långresan.</div>
+    <div class="divider"></div>
+
+    <!-- ====== PACKLISTA ====== -->
+    <div class="info-section pack-shell" id="packlista">
+      <h2>🎒 Packlista – måsten</h2>
+      <div class="pack-card">
+        <div class="pack-top">
+          <div class="pack-progress">
+            <span class="chip chip--blue">Sparar automatiskt</span>
+            <span id="packProgressText">0/0 klara</span>
+          </div>
+          <div class="pack-actions">
+            <button class="btn" id="packAll">Markera alla</button>
+            <button class="btn" id="packNone">Avmarkera alla</button>
+            <button class="btn" id="packReset">Återställ (rensa sparat)</button>
+          </div>
         </div>
-        <div class="info-card">
-          <div class="info-title">Phú Quốc – Le Forest</div>
-          <div class="info-subtitle">16–19 feb (3 nätter)</div>
-          <div class="info-note">Mjukstart på ön innan längre vistelse.</div>
-        </div>
-        <div class="info-card info-card--highlight">
-          <div class="info-title">Phú Quốc – Best Western Premier Sonasea</div>
-          <div class="info-subtitle">19–26 feb (7 nätter)</div>
-          <div class="info-note">Lång, härlig solvecka med riktigt bra standard. ☀️🏝️</div>
+
+        <div class="pack-list" id="packList"></div>
+
+        <div class="small-note">
+          Tips: lägg pass, kort och mediciner i <strong>handbagaget</strong>. Ta även en liten påse för “våt/dirty”.
         </div>
       </div>
     </div>
 
-    <!-- Hotellinfo budget -->
-    <div class="info-section">
-      <h2>🏨 Hotell – kvar att boka / budget</h2>
-      <div class="info-grid info-grid--two">
-        <div class="info-card">
-          <div class="info-title">Hạ Long</div>
-          <div class="info-subtitle">11–16 feb (5 nätter)</div>
-          <div class="info-price">ca 5 000 – 8 000 kr</div>
-          <div class="info-note">Mellanklass med frukost & pool – bra bas mellan utflykterna.</div>
-        </div>
-        <div class="info-card">
-          <div class="info-title">Hanoi – avslut</div>
-          <div class="info-subtitle">26 feb – 2 mars (5 nätter)</div>
-          <div class="info-price">ca 4 000 – 6 000 kr</div>
-          <div class="info-note">Sista dagarna i stan innan hemresa – mat, shopping och lugn.</div>
-        </div>
-      </div>
-    </div>
+    <!-- ====== AIRALO eSIM INFO ====== -->
+    <div class="info-section" id="airalo-esim">
+      <h2>📱 Airalo eSIM – internet i Vietnam</h2>
 
-    <!-- Hanoi-destination, mysig text -->
-    <div class="info-section">
-      <h2>🏙️ Hanoi 8–11 februari 2026</h2>
       <div class="info-card info-text">
-        <p><strong>Tre nätter i Vietnams charmiga huvudstad</strong></p>
-        <p>Hanoi är en av Asiens mest stämningsfulla städer – en blandning av franska kolonialhus, vindlande gränder, doften av grillad street-food och mopeder som surrar runt som små fiskstim. Det känns levande, mjukt, varmt och fullt av historia.</p>
-        <p>Ni kommer hit när vädret är som bäst: runt 22–26°C, torr luft och sköna kvällar. Perfekt start på resan.</p>
+        <p><strong>🇻🇳 Vad är Airalo eSIM?</strong></p>
+        <p>
+          Airalo säljer <strong>digitala SIM-kort (eSIM)</strong> som du installerar direkt i telefonen —
+          inga fysiska kort.
+        </p>
 
-        <p><strong>8 februari – ankomst</strong><br />
-        Ni landar i Hanoi kl. 15:25 och tar er in till stan för incheckning på Royal Palace Hotel i Old Quarter. På kvällen: lugn promenad runt Hoan Kiem-sjön, lite street-food och första vietnamesiska kaffet eller ölen.</p>
+        <p><strong>📱 Så funkar det – steg för steg</strong></p>
 
-        <p><strong>11 februari – vidare mot Hạ Long</strong><br />
-        Efter frukost checkar ni ut, säger hej då till Hanoi för den här gången och åker vidare mot Hạ Long för nästa kapitel av resan.</p>
+        <p><strong>✅ 1) Kolla att din telefon stödjer eSIM</strong></p>
+        <ul>
+          <li>iPhone XR / XS och senare</li>
+          <li>Nyare Android-mobiler med eSIM</li>
+        </ul>
+
+        <p><strong>🛒 2) Installera Airalo-appen</strong></p>
+        <div class="map-links" aria-label="Länkar till Airalo">
+          <a target="_blank" rel="noopener" href="https://apps.apple.com/us/app/airalo-esim-travel-internet/id1475911720"> App Store</a>
+          <a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mobillium.airalo">▶ Google Play</a>
+        </div>
+
+        <p><strong>👉 Rekommenderade paket:</strong></p>
+        <ul>
+          <li><strong>15 GB / 30 dagar</strong> – bra balans</li>
+          <li><strong>20 GB / 30 dagar</strong> – om ni kör mycket navigation/video</li>
+        </ul>
+
+        <p><strong>💳 3) Betala & installera</strong></p>
+        <ul>
+          <li>Följ installationen i appen (QR-kod eller prompt)</li>
+          <li>Döp profilen t.ex. <em>“Vietnam eSIM”</em></li>
+        </ul>
+
+        <p><strong>📅 4) När aktiverar du datan?</strong></p>
+        <p>Installera gärna i förväg — men aktivera data när ni landar i Vietnam.</p>
+
+        <p class="info-note">
+          Tips: stäng av roaming på svenska SIM, sätt Airalo som <strong>mobildata</strong>.
+        </p>
       </div>
     </div>
 
@@ -464,84 +1045,6 @@
     // 📅 Progress-baren ska börja räknas från 1 november 2025
     const startDate = new Date(2025, 10, 1); // (månad 10 = november)
 
-    // 📌 Milstolpar (december 2025)
-    const milestones = [
-      {
-        title: "🎉 Julfest",
-        date: new Date(2025, 11, 6, 18, 0, 0), // 6 dec 2025
-        type: "party"
-      },
-      {
-        title: "🎄 Julafton",
-        date: new Date(2025, 11, 24, 0, 0, 0), // 24 dec 2025
-        type: "christmas"
-      },
-      {
-        title: "🎆 Nyårsafton",
-        date: new Date(2025, 11, 31, 0, 0, 0), // 31 dec 2025
-        type: "newyear"
-      }
-    ];
-
-    function formatDate(date) {
-      const year = date.getFullYear();
-      const month = (date.getMonth() + 1).toString().padStart(2, "0");
-      const day = date.getDate().toString().padStart(2, "0");
-      return `${day}/${month} ${year}`;
-    }
-
-    function formatTimeLeft(diff) {
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      if (days < 0) return "✓ Klar";
-      if (days === 0) return "Idag!";
-      return `${days} dagar kvar`;
-    }
-
-    function renderMilestones() {
-      const container = document.getElementById("milestoneList");
-      container.innerHTML = "";
-
-      const sorted = [...milestones].sort((a, b) => a.date - b.date);
-      const now = new Date();
-
-      sorted.forEach(ms => {
-        const diff = ms.date - now;
-        const isPast = diff < 0;
-
-        const wrapper = document.createElement("div");
-        wrapper.className = `milestone milestone--${ms.type} ${isPast ? "past" : ""}`.trim();
-
-        const dot = document.createElement("div");
-        dot.className = "milestone-dot";
-
-        const content = document.createElement("div");
-        content.className = "milestone-content";
-
-        const title = document.createElement("div");
-        title.className = "milestone-title";
-        title.textContent = ms.title;
-
-        const meta = document.createElement("div");
-        meta.className = "milestone-meta";
-
-        const dateEl = document.createElement("div");
-        dateEl.className = "milestone-date";
-        dateEl.textContent = formatDate(ms.date);
-
-        const timeLeftEl = document.createElement("div");
-        timeLeftEl.className = "milestone-timeleft";
-        timeLeftEl.textContent = formatTimeLeft(diff);
-
-        meta.appendChild(dateEl);
-        meta.appendChild(timeLeftEl);
-        content.appendChild(title);
-        content.appendChild(meta);
-        wrapper.appendChild(dot);
-        wrapper.appendChild(content);
-        container.appendChild(wrapper);
-      });
-    }
-
     const daysEl = document.getElementById("days");
     const hoursEl = document.getElementById("hours");
     const minutesEl = document.getElementById("minutes");
@@ -551,20 +1054,69 @@
     const progressFillEl = document.getElementById("progressFill");
     const progressPercentageEl = document.getElementById("progressPercentage");
 
+    // ====== Toggle för "före agenda" ======
+    const preTripEl = document.getElementById("preTrip");
+    const togglePreTripBtn = document.getElementById("togglePreTrip");
+    const PRETRIP_MANUAL_KEY = "vietnam_pretrip_manual"; // "show" / "hide" / null
+
+    function applyToggleButtonLabel() {
+      if (!togglePreTripBtn || !preTripEl) return;
+      togglePreTripBtn.textContent = preTripEl.classList.contains("hidden")
+        ? "📌 Visa nedräkning & info"
+        : "🧭 Visa bara agenda";
+    }
+
+    function setPreTripVisibility(mode) {
+      // mode:
+      // - "auto": döljer efter avresa, visar innan
+      // - "show"/"hide": tvinga läge
+      if (!preTripEl) return;
+
+      const now = new Date();
+      const tripStarted = now >= targetDate;
+
+      let shouldHide;
+      if (mode === "show") shouldHide = false;
+      else if (mode === "hide") shouldHide = true;
+      else {
+        // auto
+        // om användaren manuellt valt något, respektera det
+        const manual = localStorage.getItem(PRETRIP_MANUAL_KEY);
+        if (manual === "show") shouldHide = false;
+        else if (manual === "hide") shouldHide = true;
+        else shouldHide = tripStarted;
+      }
+
+      preTripEl.classList.toggle("hidden", shouldHide);
+      applyToggleButtonLabel();
+    }
+
+    if (togglePreTripBtn) {
+      togglePreTripBtn.addEventListener("click", () => {
+        const isHidden = preTripEl.classList.contains("hidden");
+        const next = isHidden ? "show" : "hide";
+        localStorage.setItem(PRETRIP_MANUAL_KEY, next);
+        setPreTripVisibility(next);
+      });
+    }
+
     function updateCountdown() {
       const now = new Date();
       const diff = targetDate - now;
 
+      // varje tick: uppdatera auto-dölj (men respektera ev. manuellt val)
+      setPreTripVisibility("auto");
+
       if (diff <= 0) {
-        daysEl.textContent = 0;
-        hoursEl.textContent = 0;
-        minutesEl.textContent = 0;
-        secondsEl.textContent = 0;
-        weeksTextEl.textContent = "Resan har börjat! 🎉";
-        progressFillEl.style.width = "100%";
-        progressPercentageEl.textContent = "100% klart";
-        messageEl.textContent = "Nu kör vi! 🇻🇳✈️";
-        renderMilestones();
+        if (daysEl) daysEl.textContent = 0;
+        if (hoursEl) hoursEl.textContent = 0;
+        if (minutesEl) minutesEl.textContent = 0;
+        if (secondsEl) secondsEl.textContent = 0;
+        if (weeksTextEl) weeksTextEl.textContent = "Resan har börjat! 🎉";
+        if (progressFillEl) progressFillEl.style.width = "100%";
+        if (progressPercentageEl) progressPercentageEl.textContent = "100% klart";
+        if (messageEl) messageEl.textContent = "Nu kör vi! 🇻🇳✈️";
+        updateAgendaStatuses();
         return;
       }
 
@@ -573,28 +1125,180 @@
       const hours = Math.floor(minutes / 60);
       const days = Math.floor(hours / 24);
 
-      daysEl.textContent = days;
-      hoursEl.textContent = (hours % 24).toString().padStart(2, "0");
-      minutesEl.textContent = (minutes % 60).toString().padStart(2, "0");
-      secondsEl.textContent = (seconds % 60).toString().padStart(2, "0");
+      if (daysEl) daysEl.textContent = days;
+      if (hoursEl) hoursEl.textContent = (hours % 24).toString().padStart(2, "0");
+      if (minutesEl) minutesEl.textContent = (minutes % 60).toString().padStart(2, "0");
+      if (secondsEl) secondsEl.textContent = (seconds % 60).toString().padStart(2, "0");
 
       const weeks = Math.floor(days / 7);
       const remainingDays = days % 7;
-      weeksTextEl.textContent = `≈ ${weeks} veckor och ${remainingDays} dagar kvar`;
+      if (weeksTextEl) weeksTextEl.textContent = `≈ ${weeks} veckor och ${remainingDays} dagar kvar`;
 
       const totalDiff = targetDate - startDate;
       let progress = (now - startDate) / totalDiff;
       progress = Math.min(Math.max(progress, 0), 1);
 
       const percent = Math.round(progress * 100);
-      progressFillEl.style.width = percent + "%";
-      progressPercentageEl.textContent = percent + "% klart";
+      if (progressFillEl) progressFillEl.style.width = percent + "%";
+      if (progressPercentageEl) progressPercentageEl.textContent = percent + "% klart";
 
-      messageEl.textContent = "Snart bär det av! 🧳";
-
-      renderMilestones();
+      if (messageEl) messageEl.textContent = "Snart bär det av! 🧳";
+      updateAgendaStatuses();
     }
 
+    // ====== Agenda status (Idag / Klar / Kommande) ======
+    function ymdToLocalDate(ymd) {
+      const [y, m, d] = ymd.split("-").map(Number);
+      return new Date(y, m - 1, d, 12, 0, 0);
+    }
+
+    function isSameDay(a, b) {
+      return a.getFullYear() === b.getFullYear()
+        && a.getMonth() === b.getMonth()
+        && a.getDate() === b.getDate();
+    }
+
+    function updateAgendaStatuses() {
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0);
+
+      const days = document.querySelectorAll("details.day[data-date]");
+      days.forEach(d => {
+        const ymd = d.getAttribute("data-date");
+        const date = ymdToLocalDate(ymd);
+        const badge = d.querySelector("[data-status]");
+        if (!badge) return;
+
+        badge.classList.remove("badge--today", "badge--done", "badge--upcoming");
+
+        if (isSameDay(date, today)) {
+          badge.textContent = "Idag";
+          badge.classList.add("badge--today");
+          d.open = true;
+        } else if (date < today) {
+          badge.textContent = "Klar";
+          badge.classList.add("badge--done");
+        } else {
+          badge.textContent = "Kommande";
+          badge.classList.add("badge--upcoming");
+        }
+      });
+    }
+
+    // ====== Packlista (sparas i localStorage) ======
+    const PACK_KEY = "vietnam_packlist_v2";
+
+    const packItems = [
+      { id: "pass", title: "Pass", note: "Kolla giltighet (helst 6 månader+)." },
+      { id: "visum", title: "Visum / inresekrav", note: "Spara kopior i mobilen + mail." },
+      { id: "forsakring", title: "Reseförsäkring", note: "Försäkringsnummer + villkor offline." },
+      { id: "flygbiljetter", title: "Flygbiljetter / bokningsnummer", note: "Skärmdumpar ifall offline." },
+      { id: "hotell", title: "Hotellbokningar", note: "Adress + telefon, särskilt första natten." },
+      { id: "bankkort", title: "Bankkort + extra kort", note: "Ha ett kort separat från plånboken." },
+      { id: "kontanter", title: "Lite kontanter", note: "Bra för taxi/marknad första dagen." },
+      { id: "airalo", title: "Airalo eSIM (installerat + redo)", note: "App installerad + paket valt. Aktivera datan vid landning." },
+      { id: "adapter", title: "Reseadapter + laddare", note: "USB-C/Lightning + extra kabel." },
+      { id: "powerbank", title: "Powerbank", note: "För heldagar (VinWonders/safari)." },
+      { id: "mediciner", title: "Mediciner (måste)", note: "Originalförpackning + recept om behövs." },
+      { id: "mygg", title: "Myggmedel", note: "Gärna effektivt + after-bite." },
+      { id: "sol", title: "Solskydd", note: "SPF + after sun." },
+      { id: "bad", title: "Badkläder", note: "Minst 2 uppsättningar om ni vill." },
+      { id: "sandaler", title: "Sandaler/flipflops", note: "Skönt till strand/pool." },
+      { id: "promenadskor", title: "Bekväma promenadskor", note: "Hanoi/Old Quarter." },
+      { id: "regn", title: "Lätt regnjacka/poncho", note: "Alltid bra i Sydostasien." },
+      { id: "forsta-hjalpen", title: "Mini första hjälpen", note: "Plåster, skavsår, vätskeersättning." },
+      { id: "kopior", title: "Kopior på pass + viktiga papper", note: "I molnet + offline." }
+    ];
+
+    const packListEl = document.getElementById("packList");
+    const packProgressText = document.getElementById("packProgressText");
+    const packAllBtn = document.getElementById("packAll");
+    const packNoneBtn = document.getElementById("packNone");
+    const packResetBtn = document.getElementById("packReset");
+
+    function loadPackState() {
+      try {
+        const raw = localStorage.getItem(PACK_KEY);
+        return raw ? JSON.parse(raw) : {};
+      } catch {
+        return {};
+      }
+    }
+
+    function savePackState(state) {
+      localStorage.setItem(PACK_KEY, JSON.stringify(state));
+    }
+
+    function renderPacklist() {
+      if (!packListEl) return;
+      const state = loadPackState();
+      packListEl.innerHTML = "";
+
+      packItems.forEach(item => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "pack-item";
+        wrapper.dataset.id = item.id;
+
+        const cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.id = "cb_" + item.id;
+        cb.checked = !!state[item.id];
+
+        const label = document.createElement("label");
+        label.setAttribute("for", cb.id);
+        label.innerHTML = `<strong>${item.title}</strong>${item.note ? `<small>${item.note}</small>` : ""}`;
+
+        cb.addEventListener("change", () => {
+          const next = loadPackState();
+          next[item.id] = cb.checked;
+          savePackState(next);
+          updatePackProgress();
+          updatePackStyles();
+        });
+
+        wrapper.appendChild(cb);
+        wrapper.appendChild(label);
+        packListEl.appendChild(wrapper);
+      });
+
+      updatePackProgress();
+      updatePackStyles();
+    }
+
+    function updatePackStyles() {
+      const state = loadPackState();
+      document.querySelectorAll(".pack-item").forEach(el => {
+        const id = el.dataset.id;
+        const done = !!state[id];
+        el.classList.toggle("done", done);
+      });
+    }
+
+    function updatePackProgress() {
+      if (!packProgressText) return;
+      const state = loadPackState();
+      const total = packItems.length;
+      const done = packItems.reduce((acc, it) => acc + (state[it.id] ? 1 : 0), 0);
+      packProgressText.textContent = `${done}/${total} klara`;
+    }
+
+    function setAllPack(value) {
+      const next = {};
+      packItems.forEach(it => next[it.id] = value);
+      savePackState(next);
+      renderPacklist();
+    }
+
+    if (packAllBtn) packAllBtn.addEventListener("click", () => setAllPack(true));
+    if (packNoneBtn) packNoneBtn.addEventListener("click", () => setAllPack(false));
+    if (packResetBtn) packResetBtn.addEventListener("click", () => {
+      localStorage.removeItem(PACK_KEY);
+      renderPacklist();
+    });
+
+    // Init
+    renderPacklist();
+    setPreTripVisibility("auto");
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
