@@ -396,7 +396,6 @@
     <h1>Nedräkning till Vietnam</h1>
     <div class="subtitle">Avresa: 7 februari 2026 kl 18:10 från Köpenhamn ✈️🇻🇳</div>
 
-    <!-- Snabblänkar + Toggle (ligger OUTSIDE preTrip så den alltid syns) -->
     <div class="map-links" style="margin: 0.55rem 0 1rem 0;">
       <a href="valuta.html">💱 Valuta VND ⇄ SEK</a>
       <a href="mat-aktiviteter.html">🍜 Mat & aktiviteter</a>
@@ -405,9 +404,7 @@
       <button class="btn" id="togglePreTrip" type="button">📌 Visa nedräkning & info</button>
     </div>
 
-    <!-- ====== ALLT FÖRE AGENDA (auto-döljs efter avresa) ====== -->
     <div id="preTrip">
-      <!-- Huvudnedräkning -->
       <div class="timer">
         <div class="time-block">
           <div id="days" class="time-value">0</div>
@@ -437,7 +434,6 @@
         <div id="progressPercentage" class="progress-percentage"></div>
       </div>
 
-      <!-- Flyginfo -->
       <div class="info-section">
         <h2>✈️ Internationella flyg – klart</h2>
         <div class="info-grid">
@@ -460,7 +456,6 @@
         </div>
       </div>
 
-      <!-- Hotellinfo bokat -->
       <div class="info-section">
         <h2>🏨 Hotell – bokat</h2>
         <div class="info-grid info-grid--two">
@@ -482,7 +477,6 @@
         </div>
       </div>
 
-      <!-- Hotellinfo budget -->
       <div class="info-section">
         <h2>🏨 Hotell – kvar att boka / budget</h2>
         <div class="info-grid info-grid--two">
@@ -501,7 +495,6 @@
         </div>
       </div>
 
-      <!-- Hanoi-destination -->
       <div class="info-section">
         <h2>🏙️ Hanoi 8–11 februari 2026</h2>
         <div class="info-card info-text">
@@ -514,9 +507,7 @@
 
       <div class="divider"></div>
     </div>
-    <!-- ====== SLUT preTrip ====== -->
 
-    <!-- ====== AGENDA ====== -->
     <div class="info-section agenda-shell" id="agenda">
       <h2>🧭 Hela resan – dag för dag (uppdaterad & slutgiltig)</h2>
 
@@ -532,7 +523,6 @@
 
       <div class="agenda-grid">
 
-        <!-- HANOI START -->
         <section class="agenda-card" id="hanoi-start">
           <h3>🏮 Hanoi (start) – 8–11 feb</h3>
           <div class="agenda-meta">
@@ -611,6 +601,7 @@
             </div>
           </details>
 
+          <!-- ✅ UPPDATERAD: Fotboll 11 feb 13:30 + borttagen från 27 feb -->
           <details class="day" data-date="2026-02-11">
             <summary class="day__summary">
               <div class="day__left">
@@ -618,12 +609,23 @@
                 <div class="day__sub">
                   <span class="day__date">2026-02-11</span>
                   <span class="badge badge--upcoming" data-status>Kommande</span>
-                  <span class="chip chip--green">Tema: Avresa till Hạ Long</span>
+                  <span class="chip chip--green">Tema: Fotboll + avresa till Hạ Long</span>
                 </div>
               </div>
               <span class="chip">▼</span>
             </summary>
             <div class="day__body">
+              <div class="bullet">
+                <span class="icon">⚽</span>
+                <div>
+                  <strong>Fotboll i Hanoi kl 13:30</strong> (innan avresa)
+                  <div class="map-links" style="margin-top:0.35rem;">
+                    <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=H%C3%A0ng+%C4%90%E1%BA%ABy+Stadium+Hanoi">🗺️ Hàng Đẫy Stadium</a>
+                    <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=M%E1%BB%B9+%C4%90%C3%ACnh+National+Stadium+Hanoi">🗺️ Mỹ Đình National Stadium</a>
+                  </div>
+                </div>
+              </div>
+
               <div class="bullet"><span class="icon">🚐</span><div>Minivan via hotell • Hanoi → Hạ Long (2,5–3 h)</div></div>
               <div class="bullet"><span class="icon">🏨</span><div>Incheckning hotell</div></div>
               <div class="bullet"><span class="icon">🌙</span><div>Kväll: strandpromenad / night market</div></div>
@@ -763,7 +765,6 @@
             Målet: smart rytm så det aldrig blir för intensivt. Ni gör <strong>max 1 stor dag</strong>, sen lugn återhämtning.
           </p>
 
-          <!-- ÖVERSIKT-KORT -->
           <details class="day" data-date="2026-02-17">
             <summary class="day__summary">
               <div class="day__left">
@@ -785,7 +786,6 @@
             </div>
           </details>
 
-          <!-- AKTIVITET 2: HON THOM (BOKAD) -->
           <details class="day" data-date="2026-02-18">
             <summary class="day__summary">
               <div class="day__left">
@@ -814,7 +814,6 @@
             </div>
           </details>
 
-          <!-- AKTIVITET 1: VINWONDERS -->
           <details class="day" data-date="2026-02-22">
             <summary class="day__summary">
               <div class="day__left">
@@ -844,7 +843,6 @@
             </div>
           </details>
 
-          <!-- ENKLA “FYLLDAGAR” -->
           <details class="day" data-date="2026-02-17">
             <summary class="day__summary">
               <div class="day__left">
@@ -899,7 +897,7 @@
             <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vietnam+Military+History+Museum+Hanoi">🗺️ Military History Museum</a>
           </div>
 
-          <p class="agenda-line">Fokus: lugna dagar, shopping, museum + fotboll, samt pack/utskick.</p>
+          <p class="agenda-line">Fokus: lugna dagar, shopping, museum, samt pack/utskick.</p>
           <p class="info-note"><strong>📦 Plan:</strong> Sista dagarna i Hanoi skickar vi hem <strong>paket via posten</strong> så ni slipper bära hem allt i bagaget.</p>
 
           <details class="day" data-date="2026-02-26">
@@ -920,10 +918,11 @@
             </div>
           </details>
 
+          <!-- ✅ Här är fotbollen borttagen från 27 feb -->
           <details class="day" data-date="2026-02-27">
             <summary class="day__summary">
               <div class="day__left">
-                <div class="day__title">🗓️ Fredag 27 feb – Militärhistoria & ⚽ fotboll</div>
+                <div class="day__title">🗓️ Fredag 27 feb – Militärhistoria</div>
                 <div class="day__sub">
                   <span class="day__date">2026-02-27</span>
                   <span class="badge badge--upcoming" data-status>Kommande</span>
@@ -935,19 +934,7 @@
             <div class="day__body">
               <div class="bullet"><span class="icon">🏛️</span><div>Vietnam Military History Museum</div></div>
               <div class="bullet"><span class="icon">🛍️</span><div>Eftermiddag: shopping</div></div>
-
-              <div class="bullet">
-                <span class="icon">⚽</span>
-                <div>
-                  Kväll: fotboll (Hanoi FC / Viettel FC) • alt sportbar om ingen match
-                  <div class="map-links" style="margin-top:0.35rem;">
-                    <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=H%C3%A0ng+%C4%90%E1%BA%ABy+Stadium+Hanoi">🗺️ Hàng Đẫy Stadium</a>
-                    <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=M%E1%BB%B9+%C4%90%C3%ACnh+National+Stadium+Hanoi">🗺️ Mỹ Đình National Stadium</a>
-                    <a target="_blank" rel="noopener" href="https://www.google.com/search?q=Hanoi+FC+fixtures">🔎 Hanoi FC fixtures</a>
-                    <a target="_blank" rel="noopener" href="https://www.google.com/search?q=Viettel+FC+fixtures">🔎 Viettel FC fixtures</a>
-                  </div>
-                </div>
-              </div>
+              <div class="bullet"><span class="icon">🍽️</span><div>Kväll: middag / café (lugn)</div></div>
             </div>
           </details>
 
@@ -1053,7 +1040,6 @@
 
     <div class="divider"></div>
 
-    <!-- ====== PACKLISTA ====== -->
     <div class="info-section pack-shell" id="packlista">
       <h2>🎒 Packlista – måsten</h2>
       <div class="pack-card">
@@ -1077,7 +1063,6 @@
       </div>
     </div>
 
-    <!-- ====== AIRALO eSIM INFO ====== -->
     <div class="info-section" id="airalo-esim">
       <h2>📱 Airalo eSIM – internet i Vietnam</h2>
 
@@ -1122,10 +1107,8 @@
   </div>
 
   <script>
-    // ✈️ Resan: första flyget från Köpenhamn (räknar ned till avgång)
-    const targetDate = new Date(2026, 1, 7, 18, 10, 0);  // 7 feb 2026 kl 18:10
-    // 📅 Progress-baren ska börja räknas från 1 november 2025
-    const startDate = new Date(2025, 10, 1); // (månad 10 = november)
+    const targetDate = new Date(2026, 1, 7, 18, 10, 0);
+    const startDate = new Date(2025, 10, 1);
 
     const daysEl = document.getElementById("days");
     const hoursEl = document.getElementById("hours");
@@ -1136,10 +1119,9 @@
     const progressFillEl = document.getElementById("progressFill");
     const progressPercentageEl = document.getElementById("progressPercentage");
 
-    // ====== Toggle för "före agenda" ======
     const preTripEl = document.getElementById("preTrip");
     const togglePreTripBtn = document.getElementById("togglePreTrip");
-    const PRETRIP_MANUAL_KEY = "vietnam_pretrip_manual"; // "show" / "hide" / null
+    const PRETRIP_MANUAL_KEY = "vietnam_pretrip_manual";
 
     function applyToggleButtonLabel() {
       if (!togglePreTripBtn || !preTripEl) return;
@@ -1149,9 +1131,6 @@
     }
 
     function setPreTripVisibility(mode) {
-      // mode:
-      // - "auto": döljer efter avresa, visar innan
-      // - "show"/"hide": tvinga läge
       if (!preTripEl) return;
 
       const now = new Date();
@@ -1225,7 +1204,6 @@
       updateAgendaStatuses();
     }
 
-    // ====== Agenda status (Idag / Klar / Kommande) ======
     function ymdToLocalDate(ymd) {
       const [y, m, d] = ymd.split("-").map(Number);
       return new Date(y, m - 1, d, 12, 0, 0);
@@ -1264,7 +1242,6 @@
       });
     }
 
-    // ====== Packlista (sparas i localStorage) ======
     const PACK_KEY = "vietnam_packlist_v2";
 
     const packItems = [
@@ -1375,7 +1352,6 @@
       renderPacklist();
     });
 
-    // Init
     renderPacklist();
     setPreTripVisibility("auto");
     updateCountdown();
