@@ -404,7 +404,9 @@
       <button class="btn" id="togglePreTrip" type="button">📌 Visa nedräkning & info</button>
     </div>
 
+    <!-- ====== ALLT FÖRE AGENDA (auto-döljs efter avresa) ====== -->
     <div id="preTrip">
+      <!-- Huvudnedräkning -->
       <div class="timer">
         <div class="time-block">
           <div id="days" class="time-value">0</div>
@@ -434,6 +436,7 @@
         <div id="progressPercentage" class="progress-percentage"></div>
       </div>
 
+      <!-- Flyginfo -->
       <div class="info-section">
         <h2>✈️ Internationella flyg – klart</h2>
         <div class="info-grid">
@@ -456,6 +459,7 @@
         </div>
       </div>
 
+      <!-- Hotellinfo bokat -->
       <div class="info-section">
         <h2>🏨 Hotell – bokat</h2>
         <div class="info-grid info-grid--two">
@@ -464,11 +468,19 @@
             <div class="info-subtitle">8–11 feb (3 nätter)</div>
             <div class="info-note">Perfekt start i Hanoi efter långresan.</div>
           </div>
+
+          <div class="info-card info-card--highlight">
+            <div class="info-title">Hạ Long – Novotel Ha Long Bay</div>
+            <div class="info-subtitle">11–16 feb (5 nätter)</div>
+            <div class="info-note">Bokat ✅</div>
+          </div>
+
           <div class="info-card">
             <div class="info-title">Phú Quốc – Le Forest</div>
             <div class="info-subtitle">16–19 feb (3 nätter)</div>
             <div class="info-note">Mjukstart på ön innan längre vistelse.</div>
           </div>
+
           <div class="info-card info-card--highlight">
             <div class="info-title">Phú Quốc – Best Western Premier Sonasea</div>
             <div class="info-subtitle">19–26 feb (7 nätter)</div>
@@ -477,57 +489,65 @@
         </div>
       </div>
 
+      <!-- Hotellinfo budget -->
       <div class="info-section">
         <h2>🏨 Hotell – kvar att boka / budget</h2>
         <div class="info-grid info-grid--two">
           <div class="info-card">
-            <div class="info-title">Hạ Long</div>
-            <div class="info-subtitle">11–16 feb (5 nätter)</div>
-            <div class="info-price">ca 5 000 – 8 000 kr</div>
-            <div class="info-note">Mellanklass med frukost & pool – bra bas mellan utflykterna.</div>
+            <div class="info-title">Ninh Binh</div>
+            <div class="info-subtitle">26–27 feb (1 natt)</div>
+            <div class="info-price">Budget: välj nivå</div>
+            <div class="info-note">Barnvänligt + bra läge för Trang An/Tam Coc. Privat bil 26 feb.</div>
           </div>
+
           <div class="info-card">
             <div class="info-title">Hanoi – avslut</div>
-            <div class="info-subtitle">26 feb – 2 mars (5 nätter)</div>
+            <div class="info-subtitle">27 feb – 2 mars</div>
             <div class="info-price">ca 4 000 – 6 000 kr</div>
             <div class="info-note">Sista dagarna i stan innan hemresa – mat, shopping och lugn.</div>
           </div>
         </div>
       </div>
 
+      <!-- Hanoi-destination -->
       <div class="info-section">
         <h2>🏙️ Hanoi 8–11 februari 2026</h2>
         <div class="info-card info-text">
           <p><strong>Tre nätter i Vietnams charmiga huvudstad</strong></p>
           <p>Hanoi är en av Asiens mest stämningsfulla städer – franska kolonialhus, vindlande gränder och street-food överallt.</p>
           <p><strong>8 feb:</strong> ankomst 15:25, incheckning, lugn kväll.</p>
-          <p><strong>11 feb:</strong> vidare mot Hạ Long med minivan.</p>
+          <p><strong>11 feb:</strong> fotboll 13:30 + vidare mot Hạ Long.</p>
         </div>
       </div>
 
       <div class="divider"></div>
     </div>
+    <!-- ====== SLUT preTrip ====== -->
 
+    <!-- ====== AGENDA ====== -->
     <div class="info-section agenda-shell" id="agenda">
       <h2>🧭 Hela resan – dag för dag (uppdaterad & slutgiltig)</h2>
 
+      <!-- ✅ Uppdaterad mini-nav-ordning: Ninh Binh före Hanoi (slutet) -->
       <div class="mini-nav" aria-label="Snabbnavigering">
         <a href="#hanoi-start">🏮 Hanoi (start)</a>
         <a href="#halong">🚤 Hạ Long</a>
         <a href="#phuquoc">🏝️ Phú Quốc</a>
-        <a href="#hanoi-end">🏮 Hanoi (slutet)</a>
         <a href="#ninhbinh">🌾 Ninh Binh</a>
+        <a href="#hanoi-end">🏮 Hanoi (slutet)</a>
         <a href="#packlista">🎒 Packlista</a>
         <a href="#airalo-esim">📱 Airalo</a>
       </div>
 
       <div class="agenda-grid">
 
+        <!-- HANOI START -->
         <section class="agenda-card" id="hanoi-start">
           <h3>🏮 Hanoi (start) – 8–11 feb</h3>
           <div class="agenda-meta">
             <span class="chip chip--blue">Bas: Old Quarter</span>
             <span class="chip">🏨 Hanoi Royal Palace Hotel 2</span>
+            <span class="chip chip--green">🛏️ Nätter: 3</span>
           </div>
 
           <div class="map-links" aria-label="Kartlänkar Hanoi">
@@ -601,7 +621,7 @@
             </div>
           </details>
 
-          <!-- ✅ UPPDATERAD: Fotboll 11 feb 13:30 + borttagen från 27 feb -->
+          <!-- Fotboll 11 feb 13:30 innan Hạ Long -->
           <details class="day" data-date="2026-02-11">
             <summary class="day__summary">
               <div class="day__left">
@@ -621,7 +641,6 @@
                   <strong>Fotboll i Hanoi kl 13:30</strong> (innan avresa)
                   <div class="map-links" style="margin-top:0.35rem;">
                     <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=H%C3%A0ng+%C4%90%E1%BA%ABy+Stadium+Hanoi">🗺️ Hàng Đẫy Stadium</a>
-                
                   </div>
                 </div>
               </div>
@@ -638,7 +657,8 @@
           <h3>🚤 Hạ Long – 11–16 feb</h3>
           <div class="agenda-meta">
             <span class="chip chip--blue">Bas: Bai Chay</span>
-            <span class="chip">🌊 Bay + nöjen</span>
+            <span class="chip">🏨 Novotel Ha Long Bay</span>
+            <span class="chip chip--green">🛏️ Nätter: 5</span>
           </div>
 
           <div class="map-links" aria-label="Kartlänkar Hạ Long">
@@ -743,14 +763,15 @@
           </details>
         </section>
 
-        <!-- PHU QUOC (UPPDATERAD MED AKTIVITETSPLAN) -->
+        <!-- PHU QUOC -->
         <section class="agenda-card" id="phuquoc">
           <h3>🏝️ Phú Quốc – aktivitetsplan (uppdaterad)</h3>
           <div class="agenda-meta">
-            <span class="chip chip--green">🏨 16–19 feb: Le Forest Resort</span>
-            <span class="chip chip--blue">🏨 19–26 feb: Best Western Premier Sonasea</span>
+            <span class="chip chip--green">🏨 16–19 feb: Le Forest</span>
+            <span class="chip chip--blue">🏨 19–26 feb: Sonasea</span>
+            <span class="chip chip--green">🛏️ Nätter: 10</span>
             <span class="chip">☀️ Strand • vila</span>
-            <span class="chip chip--yellow">🧧 Tết-period (vietnamesiskt nyår)</span>
+            <span class="chip chip--yellow">🧧 Tết-period</span>
           </div>
 
           <div class="map-links" aria-label="Kartlänkar Phú Quốc">
@@ -863,97 +884,172 @@
             </div>
           </details>
 
+          <!-- 26 feb: flyg + direkt vidare till Ninh Binh -->
           <details class="day" data-date="2026-02-26">
             <summary class="day__summary">
               <div class="day__left">
-                <div class="day__title">🗓️ Torsdag 26 feb – Flyg tillbaka till Hanoi</div>
+                <div class="day__title">🗓️ Torsdag 26 feb – Flyg + vidare mot Ninh Binh</div>
                 <div class="day__sub">
                   <span class="day__date">2026-02-26</span>
                   <span class="badge badge--upcoming" data-status>Kommande</span>
-                  <span class="chip chip--blue">Tema: Flyg</span>
+                  <span class="chip chip--blue">Tema: Flyg + roadtrip</span>
                 </div>
               </div>
               <span class="chip">▼</span>
             </summary>
             <div class="day__body">
               <div class="bullet"><span class="icon">✈️</span><div>PQC → HAN <strong>08:40–10:45</strong></div></div>
+              <div class="bullet"><span class="icon">🚗</span><div>Direkt vidare till <strong>Ninh Binh</strong> med privat bil (ca <strong>12:00</strong> avresa)</div></div>
+              <div class="bullet"><span class="icon">🌾</span><div>Ankomst Ninh Binh ca <strong>15:00</strong> • check-in • lugn kväll</div></div>
+            </div>
+          </details>
+        </section>
+
+        <!-- NINH BINH -->
+        <section class="agenda-card" id="ninhbinh">
+          <h3>🌾 Ninh Binh – 26–27 feb (1 natt)</h3>
+          <div class="agenda-meta">
+            <span class="chip chip--green">🚗 Privat bil</span>
+            <span class="chip">🛶 Trang An</span>
+            <span class="chip chip--orange">⛰️ Hang Mua (om ork)</span>
+            <span class="chip chip--blue">🎒 1-natt-packning</span>
+            <span class="chip chip--green">🛏️ Nätter: 1</span>
+          </div>
+
+          <div class="map-links" aria-label="Kartlänkar Ninh Binh">
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Trang+An+Ninh+Binh">🗺️ Trang An</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hang+Mua+Ninh+Binh">🗺️ Hang Mua</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bich+Dong+Pagoda+Ninh+Binh">🗺️ Bich Dong Pagoda</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tam+Coc+Ninh+Binh">🗺️ Tam Coc</a>
+          </div>
+
+          <p class="agenda-line">Upplägg: direkt till Ninh Binh efter flyg • lugn kväll • heldag aktiviteter • kväll tillbaka till Hanoi.</p>
+
+          <details class="day" data-date="2026-02-26">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Torsdag 26 feb – Ankomst Ninh Binh</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-26</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--green">Tema: Resdag + lugn kväll</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+
+            <div class="day__body">
+              <div class="bullet"><span class="icon">✈️</span><div>Landar Hanoi <strong>10:45</strong></div></div>
+              <div class="bullet"><span class="icon">🚗</span><div>Avresa med privat bil ca <strong>12:00</strong></div></div>
+              <div class="bullet"><span class="icon">🌾</span><div>Framme i Ninh Binh ca <strong>15:00</strong> • check-in</div></div>
+
+              <div class="bullet"><span class="icon">🚲</span><div>1 lätt aktivitet (välj 1): kort cykeltur / promenad i risfälten / ev. Bich Dong-pagodan (kort)</div></div>
+              <div class="bullet"><span class="icon">🍽️</span><div>Tidig middag</div></div>
+              <div class="bullet"><span class="icon">😌</span><div>Ta det lugnt ✅ (perfekt efter resdag + barn)</div></div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-02-27">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Fredag 27 feb – Heldag Ninh Binh + kväll till Hanoi</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-27</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--blue">Tema: 09:00–18:00 aktiviteter</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🛶</span><div><strong>Trang An</strong> båttur (förmiddag, 2,5–3 h)</div></div>
+              <div class="bullet"><span class="icon">🍜</span><div>Lunch</div></div>
+              <div class="bullet"><span class="icon">⛰️</span><div><strong>Hang Mua</strong> (utsikt – om ork finns)</div></div>
+              <div class="bullet"><span class="icon">🚲</span><div>Cykling / vila</div></div>
+
+              <div class="small-note">👉 Detta täcker “måstena” i Ninh Binh.</div>
+
+              <div class="bullet"><span class="icon">🚗</span><div>Avresa mot Hanoi ca <strong>18:00</strong></div></div>
+              <div class="bullet"><span class="icon">🏮</span><div>Ankomst Hanoi ca <strong>20:30–21:00</strong> • check-in • sova</div></div>
             </div>
           </details>
         </section>
 
         <!-- HANOI END -->
         <section class="agenda-card" id="hanoi-end">
-          <h3>🏮 Hanoi (slutet) – 26 feb–2 mars</h3>
+          <h3>🏮 Hanoi (slutet) – 27 feb kväll–2 mars</h3>
           <div class="agenda-meta">
             <span class="chip chip--blue">Fokus: lugn avslutning</span>
             <span class="chip">🛍️ Shopping & caféliv</span>
             <span class="chip chip--green">📦 Paket hem</span>
+            <span class="chip chip--green">🛏️ Nätter: 3</span>
           </div>
 
           <div class="map-links" aria-label="Kartlänkar Hanoi slut">
             <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Old+Quarter+Hanoi">🗺️ Old Quarter</a>
             <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=West+Lake+Hanoi">🗺️ West Lake</a>
             <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vietnam+Post+Hanoi">🗺️ Vietnam Post</a>
-            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vietnam+Military+History+Museum+Hanoi">🗺️ Military History Museum</a>
+            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Vietnam+Military+History+Museum+Hanoi">🗺️ Vietnam Military History Museum</a>
           </div>
 
-          <p class="agenda-line">Fokus: lugna dagar, shopping, museum, samt pack/utskick.</p>
+          <p class="agenda-line">Fokus: lugna dagar i stan efter Ninh Binh • shopping, museum, packning och ev. paket hem.</p>
           <p class="info-note"><strong>📦 Plan:</strong> Sista dagarna i Hanoi skickar vi hem <strong>paket via posten</strong> så ni slipper bära hem allt i bagaget.</p>
 
-          <details class="day" data-date="2026-02-26">
-            <summary class="day__summary">
-              <div class="day__left">
-                <div class="day__title">🗓️ Torsdag 26 feb – Tillbaka till Hanoi</div>
-                <div class="day__sub">
-                  <span class="day__date">2026-02-26</span>
-                  <span class="badge badge--upcoming" data-status>Kommande</span>
-                  <span class="chip chip--green">Tema: Incheckning & vila</span>
-                </div>
-              </div>
-              <span class="chip">▼</span>
-            </summary>
-            <div class="day__body">
-              <div class="bullet"><span class="icon">🏨</span><div>Incheckning hotell • vila</div></div>
-              <div class="bullet"><span class="icon">☕</span><div>Enkel kväll: café / mat nära</div></div>
-            </div>
-          </details>
-
-          <!-- ✅ Här är fotbollen borttagen från 27 feb -->
           <details class="day" data-date="2026-02-27">
             <summary class="day__summary">
               <div class="day__left">
-                <div class="day__title">🗓️ Fredag 27 feb – Militärhistoria</div>
+                <div class="day__title">🗓️ Fredag 27 feb – Sen ankomst & incheckning</div>
                 <div class="day__sub">
                   <span class="day__date">2026-02-27</span>
                   <span class="badge badge--upcoming" data-status>Kommande</span>
-                  <span class="chip chip--orange">Tema: Museum + kväll</span>
+                  <span class="chip chip--green">Tema: Check-in & sova</span>
                 </div>
               </div>
               <span class="chip">▼</span>
             </summary>
             <div class="day__body">
-              <div class="bullet"><span class="icon">🏛️</span><div>Vietnam Military History Museum</div></div>
-              <div class="bullet"><span class="icon">🛍️</span><div>Eftermiddag: shopping</div></div>
-              <div class="bullet"><span class="icon">🍽️</span><div>Kväll: middag / café (lugn)</div></div>
+              <div class="bullet"><span class="icon">🏨</span><div>Check-in Hanoi (ca <strong>20:30–21:00</strong>)</div></div>
+              <div class="bullet"><span class="icon">🍽️</span><div>Enkel kväll: snabb middag / snacks</div></div>
+              <div class="bullet"><span class="icon">🛌</span><div>Tidig natt</div></div>
+            </div>
+          </details>
+
+          <details class="day" data-date="2026-02-28">
+            <summary class="day__summary">
+              <div class="day__left">
+                <div class="day__title">🗓️ Lördag 28 feb – Museum + shopping (lugn dag)</div>
+                <div class="day__sub">
+                  <span class="day__date">2026-02-28</span>
+                  <span class="badge badge--upcoming" data-status>Kommande</span>
+                  <span class="chip chip--orange">Tema: Stadsliv</span>
+                </div>
+              </div>
+              <span class="chip">▼</span>
+            </summary>
+            <div class="day__body">
+              <div class="bullet"><span class="icon">🏛️</span><div>Vietnam Military History Museum (om ni vill)</div></div>
+              <div class="bullet"><span class="icon">🛍️</span><div>Shopping: Old Quarter</div></div>
+              <div class="bullet"><span class="icon">☕</span><div>Caféer + pauser</div></div>
             </div>
           </details>
 
           <details class="day" data-date="2026-03-01">
             <summary class="day__summary">
               <div class="day__left">
-                <div class="day__title">🗓️ Söndag 1 mars – Tillbaka till Hanoi</div>
+                <div class="day__title">🗓️ Söndag 1 mars – Sista shopping + pack + ev. paket</div>
                 <div class="day__sub">
                   <span class="day__date">2026-03-01</span>
                   <span class="badge badge--upcoming" data-status>Kommande</span>
-                  <span class="chip chip--blue">Tema: Shopping & pack</span>
+                  <span class="chip chip--blue">Tema: Pack & fix</span>
                 </div>
               </div>
               <span class="chip">▼</span>
             </summary>
             <div class="day__body">
-              <div class="bullet"><span class="icon">🚐</span><div>Minivan tillbaka till Hanoi (ca <strong>15–16</strong>)</div></div>
               <div class="bullet"><span class="icon">🛍️</span><div>Sista shopping</div></div>
-              <div class="bullet"><span class="icon">🎒</span><div>Packning + ev. paket (Vietnam Post)</div></div>
+              <div class="bullet"><span class="icon">🎒</span><div>Packning</div></div>
+              <div class="bullet"><span class="icon">📦</span><div>Ev. Vietnam Post: skicka hem paket</div></div>
               <div class="bullet"><span class="icon">🍽️</span><div>Avslutningsmiddag</div></div>
             </div>
           </details>
@@ -978,68 +1074,12 @@
           </details>
         </section>
 
-        <!-- NINH BINH -->
-        <section class="agenda-card" id="ninhbinh">
-          <h3>🌾 Ninh Binh – 28 feb–1 mars (1 dag + 1 natt)</h3>
-          <div class="agenda-meta">
-            <span class="chip chip--green">🚐 Minivan</span>
-            <span class="chip">🛶 Trang An</span>
-            <span class="chip chip--blue">🎒 1-natt-packning</span>
-          </div>
-
-          <div class="map-links" aria-label="Kartlänkar Ninh Binh">
-            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Trang+An+Ninh+Binh">🗺️ Trang An</a>
-            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ninh+Binh+Vietnam">🗺️ Ninh Binh</a>
-          </div>
-
-          <p class="agenda-line">Upplägg: naturdag + lugn middag + en natt. Stora väskor lämnas på Hanoi-hotellet.</p>
-
-          <details class="day" data-date="2026-02-28">
-            <summary class="day__summary">
-              <div class="day__left">
-                <div class="day__title">🗓️ Lördag 28 feb – Hanoi → Ninh Binh</div>
-                <div class="day__sub">
-                  <span class="day__date">2026-02-28</span>
-                  <span class="badge badge--upcoming" data-status>Kommande</span>
-                  <span class="chip chip--orange">Tema: Naturdag</span>
-                </div>
-              </div>
-              <span class="chip">▼</span>
-            </summary>
-            <div class="day__body">
-              <div class="bullet"><span class="icon">🚐</span><div>Minivan Hanoi → Ninh Binh</div></div>
-              <div class="bullet"><span class="icon">🛶</span><div>Trang An båttur (bokas på plats)</div></div>
-              <div class="bullet"><span class="icon">🚲</span><div>Cykling / promenad i lugn miljö</div></div>
-              <div class="bullet"><span class="icon">🍽️</span><div>Middag • övernattning (barnvänligt hotell)</div></div>
-              <div class="small-note">📦 Stora väskor kvar på Hanoi-hotellet • 🎒 Endast 1-natt-packning.</div>
-            </div>
-          </details>
-
-          <details class="day" data-date="2026-03-01">
-            <summary class="day__summary">
-              <div class="day__left">
-                <div class="day__title">🗓️ Söndag 1 mars – Morgon i naturen → tillbaka</div>
-                <div class="day__sub">
-                  <span class="day__date">2026-03-01</span>
-                  <span class="badge badge--upcoming" data-status>Kommande</span>
-                  <span class="chip chip--green">Tema: Lugn morgon</span>
-                </div>
-              </div>
-              <span class="chip">▼</span>
-            </summary>
-            <div class="day__body">
-              <div class="bullet"><span class="icon">🥐</span><div>Frukost</div></div>
-              <div class="bullet"><span class="icon">🌿</span><div>Morgon i naturen</div></div>
-              <div class="bullet"><span class="icon">🚐</span><div>Tillbaka till Hanoi (ankomst ca <strong>15–16</strong>)</div></div>
-            </div>
-          </details>
-        </section>
-
       </div>
     </div>
 
     <div class="divider"></div>
 
+    <!-- ====== PACKLISTA ====== -->
     <div class="info-section pack-shell" id="packlista">
       <h2>🎒 Packlista – måsten</h2>
       <div class="pack-card">
@@ -1063,6 +1103,7 @@
       </div>
     </div>
 
+    <!-- ====== AIRALO eSIM INFO ====== -->
     <div class="info-section" id="airalo-esim">
       <h2>📱 Airalo eSIM – internet i Vietnam</h2>
 
@@ -1107,8 +1148,10 @@
   </div>
 
   <script>
-    const targetDate = new Date(2026, 1, 7, 18, 10, 0);
-    const startDate = new Date(2025, 10, 1);
+    // ✈️ Resan: första flyget från Köpenhamn (räknar ned till avgång)
+    const targetDate = new Date(2026, 1, 7, 18, 10, 0);  // 7 feb 2026 kl 18:10
+    // 📅 Progress-baren ska börja räknas från 1 november 2025
+    const startDate = new Date(2025, 10, 1); // (månad 10 = november)
 
     const daysEl = document.getElementById("days");
     const hoursEl = document.getElementById("hours");
@@ -1119,9 +1162,10 @@
     const progressFillEl = document.getElementById("progressFill");
     const progressPercentageEl = document.getElementById("progressPercentage");
 
+    // ====== Toggle för "före agenda" ======
     const preTripEl = document.getElementById("preTrip");
     const togglePreTripBtn = document.getElementById("togglePreTrip");
-    const PRETRIP_MANUAL_KEY = "vietnam_pretrip_manual";
+    const PRETRIP_MANUAL_KEY = "vietnam_pretrip_manual"; // "show" / "hide" / null
 
     function applyToggleButtonLabel() {
       if (!togglePreTripBtn || !preTripEl) return;
@@ -1131,6 +1175,9 @@
     }
 
     function setPreTripVisibility(mode) {
+      // mode:
+      // - "auto": döljer efter avresa, visar innan
+      // - "show"/"hide": tvinga läge
       if (!preTripEl) return;
 
       const now = new Date();
@@ -1204,6 +1251,7 @@
       updateAgendaStatuses();
     }
 
+    // ====== Agenda status (Idag / Klar / Kommande) ======
     function ymdToLocalDate(ymd) {
       const [y, m, d] = ymd.split("-").map(Number);
       return new Date(y, m - 1, d, 12, 0, 0);
@@ -1242,6 +1290,7 @@
       });
     }
 
+    // ====== Packlista (sparas i localStorage) ======
     const PACK_KEY = "vietnam_packlist_v2";
 
     const packItems = [
@@ -1352,6 +1401,7 @@
       renderPacklist();
     });
 
+    // Init
     renderPacklist();
     setPreTripVisibility("auto");
     updateCountdown();
