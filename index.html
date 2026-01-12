@@ -105,6 +105,23 @@
       margin-top: 0.7rem;
     }
 
+/* Lite extra styling för väderlistan (valfritt) */
+  .weather-list { margin: 0.4rem 0 0 0; padding: 0; list-style: none; }
+  .weather-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed #e5e7eb;
+    font-size: 0.9rem;
+    color: #334155;
+  }
+  .weather-item:last-child { border-bottom: 0; }
+  .weather-left { display: flex; flex-direction: column; gap: 0.1rem; }
+  .weather-date { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .weather-desc { font-size: 0.82rem; color: #64748b; }
+  .weather-right { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
     @media (min-width: 640px) {
       .info-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
@@ -1076,6 +1093,35 @@
 
       </div>
     </div>
+  <div class="divider"></div>
+<!-- ====== VÄDER (auto) ====== -->
+<div class="info-section" id="weather">
+  <h2>🌤️ Väder – kommande 3 dagar</h2>
+
+  <div class="info-grid info-grid--two" id="weatherGrid">
+    <div class="info-card info-card--highlight">
+      <div class="info-title">Hanoi</div>
+      <div class="info-note" id="weather_hanoi_status">Hämtar väder…</div>
+      <div id="weather-hanoi" class="info-text"></div>
+    </div>
+
+    <div class="info-card info-card--highlight">
+      <div class="info-title">Hạ Long</div>
+      <div class="info-note" id="weather_hal_long_status">Hämtar väder…</div>
+      <div id="weather-halong" class="info-text"></div>
+    </div>
+
+    <div class="info-card info-card--highlight">
+      <div class="info-title">Phú Quốc</div>
+      <div class="info-note" id="weather_phu_quoc_status">Hämtar väder…</div>
+      <div id="weather-phuquoc" class="info-text"></div>
+    </div>
+  </div>
+
+  <div class="small-note" style="margin-top:0.6rem;">
+    Källa: Open-Meteo (auto-hämtning). Uppdateras när sidan laddas.
+  </div>
+</div>
 
     <div class="divider"></div>
 
@@ -1104,308 +1150,599 @@
     </div>
 
     <!-- ====== AIRALO eSIM INFO ====== -->
-    <div class="info-section" id="airalo-esim">
-      <h2>📱 Airalo eSIM – internet i Vietnam</h2>
+    <div class="info-section" id="saily-esim">
+  <h2>📱 Saily eSIM – internet i Vietnam</h2>
 
-      <div class="info-card info-text">
-        <p><strong>🇻🇳 Vad är Airalo eSIM?</strong></p>
-        <p>Airalo säljer <strong>digitala SIM-kort (eSIM)</strong> som du installerar direkt i telefonen — inga fysiska kort.</p>
+  <div class="info-card info-text">
+    <p><strong>🇻🇳 Vad är Saily eSIM?</strong></p>
+    <p>
+      Saily erbjuder <strong>digitala SIM-kort (eSIM)</strong> som installeras direkt i mobilen —
+      inga fysiska SIM-kort, ingen butik och inget krångel.
+    </p>
+    <p>
+      Perfekt för Vietnam: stabil data, snabb installation och tydliga datapaket.
+    </p>
 
-        <p><strong>📱 Så funkar det – steg för steg</strong></p>
+    <p><strong>📱 Så funkar det – steg för steg</strong></p>
 
-        <p><strong>✅ 1) Kolla att din telefon stödjer eSIM</strong></p>
-        <ul>
-          <li>iPhone XR / XS och senare</li>
-          <li>Nyare Android-mobiler med eSIM</li>
-        </ul>
+    <p><strong>✅ 1) Kontrollera att din telefon stödjer eSIM</strong></p>
+    <ul>
+      <li>iPhone XR / XS och senare</li>
+      <li>Nyare Android-mobiler med eSIM-stöd</li>
+    </ul>
 
-        <p><strong>🛒 2) Installera Airalo-appen</strong></p>
-        <div class="map-links" aria-label="Länkar till Airalo">
-          <a target="_blank" rel="noopener" href="https://apps.apple.com/us/app/airalo-esim-travel-internet/id1475911720"> App Store</a>
-          <a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mobillium.airalo">▶ Google Play</a>
-        </div>
+    <p><strong>🛒 2) Köp eSIM från Saily</strong></p>
+    <p><strong>Rekommenderat paket:</strong></p>
+    <ul>
+      <li><strong>10 GB – Vietnam (30 dagar)</strong></li>
+      <li>Räcker för kartor, bokningar, sociala medier och lätt streaming</li>
+    </ul>
 
-        <p><strong>👉 Rekommenderade paket:</strong></p>
-        <ul>
-          <li><strong>15 GB / 30 dagar</strong> – bra balans</li>
-          <li><strong>20 GB / 30 dagar</strong> – om ni kör mycket navigation/video</li>
-        </ul>
-
-        <p><strong>💳 3) Betala & installera</strong></p>
-        <ul>
-          <li>Följ installationen i appen (QR-kod eller prompt)</li>
-          <li>Döp profilen t.ex. <em>“Vietnam eSIM”</em></li>
-        </ul>
-
-        <p><strong>📅 4) När aktiverar du datan?</strong></p>
-        <p>Installera gärna i förväg — men aktivera data när ni landar i Vietnam.</p>
-
-        <p class="info-note">Tips: stäng av roaming på svenska SIM, sätt Airalo som <strong>mobildata</strong>.</p>
-      </div>
+    <div class="map-links" aria-label="Länk till Saily">
+      <a target="_blank" rel="noopener" href="https://saily.com/esim-vietnam/">
+        🌐 saily.com – Vietnam eSIM
+      </a>
     </div>
+
+    <p><strong>💳 3) Betala & installera</strong></p>
+    <ul>
+      <li>Följ instruktionerna från Saily (QR-kod eller direktinstallation)</li>
+      <li>Installera profilen i telefonen</li>
+      <li>Döp den gärna till <em>“Vietnam eSIM”</em></li>
+    </ul>
+
+    <p><strong>📅 4) När aktiverar du datan?</strong></p>
+    <p>
+      Installera eSIM <strong>innan resan</strong> — men
+      <strong>aktivera mobildata först när ni landar i Vietnam</strong>.
+    </p>
+
+    <p class="info-note">
+      Tips: stäng av roaming på svenska SIM-kortet och sätt
+      <strong>Saily eSIM som mobildata</strong>.
+      Behåll svenska SIM för samtal/SMS om ni vill.
+    </p>
+
+    <p class="info-note">
+      ✔️ Enkel installation &nbsp;•&nbsp;
+      ✔️ Lagom mängd data &nbsp;•&nbsp;
+      ✔️ Perfekt för familj & navigation
+    </p>
+  </div>
+</div>
+
 
     <div id="message" class="message"></div>
   </div>
+<script>
+  /* =========================
+     ⏳ COUNTDOWN + AGENDA STATUS + PACKLIST
+     (No duplicate targetDate declarations)
+     ========================= */
 
-  <script>
-    // ✈️ Resan: första flyget från Köpenhamn (räknar ned till avgång)
-    const targetDate = new Date(2026, 1, 7, 18, 10, 0);  // 7 feb 2026 kl 18:10
-    // 📅 Progress-baren ska börja räknas från 1 november 2025
-    const startDate = new Date(2025, 10, 1); // (månad 10 = november)
+  // ✈️ Resan: första flyget från Köpenhamn (räknar ned till avgång)
+  const tripTargetDate = new Date(2026, 1, 7, 18, 10, 0); // 7 feb 2026 kl 18:10
+  // 📅 Progress-baren börjar räknas från 1 november 2025
+  const progressStartDate = new Date(2025, 10, 1); // (månad 10 = november)
 
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
-    const messageEl = document.getElementById("message");
-    const weeksTextEl = document.getElementById("weeksText");
-    const progressFillEl = document.getElementById("progressFill");
-    const progressPercentageEl = document.getElementById("progressPercentage");
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
+  const messageEl = document.getElementById("message");
+  const weeksTextEl = document.getElementById("weeksText");
+  const progressFillEl = document.getElementById("progressFill");
+  const progressPercentageEl = document.getElementById("progressPercentage");
 
-    // ====== Toggle för "före agenda" ======
-    const preTripEl = document.getElementById("preTrip");
-    const togglePreTripBtn = document.getElementById("togglePreTrip");
-    const PRETRIP_MANUAL_KEY = "vietnam_pretrip_manual"; // "show" / "hide" / null
+  // ====== Toggle för "före agenda" ======
+  const preTripEl = document.getElementById("preTrip");
+  const togglePreTripBtn = document.getElementById("togglePreTrip");
+  const PRETRIP_MANUAL_KEY = "vietnam_pretrip_manual"; // "show" / "hide" / null
 
-    function applyToggleButtonLabel() {
-      if (!togglePreTripBtn || !preTripEl) return;
-      togglePreTripBtn.textContent = preTripEl.classList.contains("hidden")
-        ? "📌 Visa nedräkning & info"
-        : "🧭 Visa bara agenda";
+  function applyToggleButtonLabel() {
+    if (!togglePreTripBtn || !preTripEl) return;
+    togglePreTripBtn.textContent = preTripEl.classList.contains("hidden")
+      ? "📌 Visa nedräkning & info"
+      : "🧭 Visa bara agenda";
+  }
+
+  function setPreTripVisibility(mode) {
+    // mode:
+    // - "auto": döljer efter avresa, visar innan
+    // - "show"/"hide": tvinga läge
+    if (!preTripEl) return;
+
+    const now = new Date();
+    const tripStarted = now >= tripTargetDate;
+
+    let shouldHide;
+    if (mode === "show") shouldHide = false;
+    else if (mode === "hide") shouldHide = true;
+    else {
+      const manual = localStorage.getItem(PRETRIP_MANUAL_KEY);
+      if (manual === "show") shouldHide = false;
+      else if (manual === "hide") shouldHide = true;
+      else shouldHide = tripStarted;
     }
 
-    function setPreTripVisibility(mode) {
-      // mode:
-      // - "auto": döljer efter avresa, visar innan
-      // - "show"/"hide": tvinga läge
-      if (!preTripEl) return;
+    preTripEl.classList.toggle("hidden", shouldHide);
+    applyToggleButtonLabel();
+  }
 
-      const now = new Date();
-      const tripStarted = now >= targetDate;
+  if (togglePreTripBtn) {
+    togglePreTripBtn.addEventListener("click", () => {
+      const isHidden = preTripEl.classList.contains("hidden");
+      const next = isHidden ? "show" : "hide";
+      localStorage.setItem(PRETRIP_MANUAL_KEY, next);
+      setPreTripVisibility(next);
+    });
+  }
 
-      let shouldHide;
-      if (mode === "show") shouldHide = false;
-      else if (mode === "hide") shouldHide = true;
-      else {
-        const manual = localStorage.getItem(PRETRIP_MANUAL_KEY);
-        if (manual === "show") shouldHide = false;
-        else if (manual === "hide") shouldHide = true;
-        else shouldHide = tripStarted;
-      }
+  function updateCountdown() {
+    const now = new Date();
+    const diff = tripTargetDate - now;
 
-      preTripEl.classList.toggle("hidden", shouldHide);
-      applyToggleButtonLabel();
-    }
+    setPreTripVisibility("auto");
 
-    if (togglePreTripBtn) {
-      togglePreTripBtn.addEventListener("click", () => {
-        const isHidden = preTripEl.classList.contains("hidden");
-        const next = isHidden ? "show" : "hide";
-        localStorage.setItem(PRETRIP_MANUAL_KEY, next);
-        setPreTripVisibility(next);
-      });
-    }
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetDate - now;
-
-      setPreTripVisibility("auto");
-
-      if (diff <= 0) {
-        if (daysEl) daysEl.textContent = 0;
-        if (hoursEl) hoursEl.textContent = 0;
-        if (minutesEl) minutesEl.textContent = 0;
-        if (secondsEl) secondsEl.textContent = 0;
-        if (weeksTextEl) weeksTextEl.textContent = "Resan har börjat! 🎉";
-        if (progressFillEl) progressFillEl.style.width = "100%";
-        if (progressPercentageEl) progressPercentageEl.textContent = "100% klart";
-        if (messageEl) messageEl.textContent = "Nu kör vi! 🇻🇳✈️";
-        updateAgendaStatuses();
-        return;
-      }
-
-      const seconds = Math.floor(diff / 1000);
-      const minutes = Math.floor(seconds / 60);
-      const hours = Math.floor(minutes / 60);
-      const days = Math.floor(hours / 24);
-
-      if (daysEl) daysEl.textContent = days;
-      if (hoursEl) hoursEl.textContent = (hours % 24).toString().padStart(2, "0");
-      if (minutesEl) minutesEl.textContent = (minutes % 60).toString().padStart(2, "0");
-      if (secondsEl) secondsEl.textContent = (seconds % 60).toString().padStart(2, "0");
-
-      const weeks = Math.floor(days / 7);
-      const remainingDays = days % 7;
-      if (weeksTextEl) weeksTextEl.textContent = `≈ ${weeks} veckor och ${remainingDays} dagar kvar`;
-
-      const totalDiff = targetDate - startDate;
-      let progress = (now - startDate) / totalDiff;
-      progress = Math.min(Math.max(progress, 0), 1);
-
-      const percent = Math.round(progress * 100);
-      if (progressFillEl) progressFillEl.style.width = percent + "%";
-      if (progressPercentageEl) progressPercentageEl.textContent = percent + "% klart";
-
-      if (messageEl) messageEl.textContent = "Snart bär det av! 🧳";
+    if (diff <= 0) {
+      if (daysEl) daysEl.textContent = 0;
+      if (hoursEl) hoursEl.textContent = 0;
+      if (minutesEl) minutesEl.textContent = 0;
+      if (secondsEl) secondsEl.textContent = 0;
+      if (weeksTextEl) weeksTextEl.textContent = "Resan har börjat! 🎉";
+      if (progressFillEl) progressFillEl.style.width = "100%";
+      if (progressPercentageEl) progressPercentageEl.textContent = "100% klart";
+      if (messageEl) messageEl.textContent = "Nu kör vi! 🇻🇳✈️";
       updateAgendaStatuses();
+      return;
     }
 
-    // ====== Agenda status (Idag / Klar / Kommande) ======
-    function ymdToLocalDate(ymd) {
-      const [y, m, d] = ymd.split("-").map(Number);
-      return new Date(y, m - 1, d, 12, 0, 0);
-    }
+    const seconds = Math.floor(diff / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
 
-    function isSameDay(a, b) {
-      return a.getFullYear() === b.getFullYear()
-        && a.getMonth() === b.getMonth()
-        && a.getDate() === b.getDate();
-    }
+    if (daysEl) daysEl.textContent = days;
+    if (hoursEl) hoursEl.textContent = (hours % 24).toString().padStart(2, "0");
+    if (minutesEl) minutesEl.textContent = (minutes % 60).toString().padStart(2, "0");
+    if (secondsEl) secondsEl.textContent = (seconds % 60).toString().padStart(2, "0");
 
-    function updateAgendaStatuses() {
-      const now = new Date();
-      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0);
+    const weeks = Math.floor(days / 7);
+    const remainingDays = days % 7;
+    if (weeksTextEl) weeksTextEl.textContent = `≈ ${weeks} veckor och ${remainingDays} dagar kvar`;
 
-      const days = document.querySelectorAll("details.day[data-date]");
-      days.forEach(d => {
-        const ymd = d.getAttribute("data-date");
-        const date = ymdToLocalDate(ymd);
-        const badge = d.querySelector("[data-status]");
-        if (!badge) return;
+    const totalDiff = tripTargetDate - progressStartDate;
+    let progress = (now - progressStartDate) / totalDiff;
+    progress = Math.min(Math.max(progress, 0), 1);
 
-        badge.classList.remove("badge--today", "badge--done", "badge--upcoming");
+    const percent = Math.round(progress * 100);
+    if (progressFillEl) progressFillEl.style.width = percent + "%";
+    if (progressPercentageEl) progressPercentageEl.textContent = percent + "% klart";
 
-        if (isSameDay(date, today)) {
-          badge.textContent = "Idag";
-          badge.classList.add("badge--today");
-          d.open = true;
-        } else if (date < today) {
-          badge.textContent = "Klar";
-          badge.classList.add("badge--done");
-        } else {
-          badge.textContent = "Kommande";
-          badge.classList.add("badge--upcoming");
-        }
-      });
-    }
+    if (messageEl) messageEl.textContent = "Snart bär det av! 🧳";
+    updateAgendaStatuses();
+  }
 
-    // ====== Packlista (sparas i localStorage) ======
-    const PACK_KEY = "vietnam_packlist_v2";
+  // ====== Agenda status (Idag / Klar / Kommande) ======
+  function ymdToLocalDate(ymd) {
+    const [y, m, d] = ymd.split("-").map(Number);
+    return new Date(y, m - 1, d, 12, 0, 0);
+  }
 
-    const packItems = [
-      { id: "pass", title: "Pass", note: "Kolla giltighet (helst 6 månader+)." },
-      { id: "visum", title: "Visum / inresekrav", note: "Spara kopior i mobilen + mail." },
-      { id: "forsakring", title: "Reseförsäkring", note: "Försäkringsnummer + villkor offline." },
-      { id: "flygbiljetter", title: "Flygbiljetter / bokningsnummer", note: "Skärmdumpar ifall offline." },
-      { id: "hotell", title: "Hotellbokningar", note: "Adress + telefon, särskilt första natten." },
-      { id: "bankkort", title: "Bankkort + extra kort", note: "Ha ett kort separat från plånboken." },
-      { id: "kontanter", title: "Lite kontanter", note: "Bra för taxi/marknad första dagen." },
-      { id: "airalo", title: "Airalo eSIM (installerat + redo)", note: "App installerad + paket valt. Aktivera datan vid landning." },
-      { id: "adapter", title: "Reseadapter + laddare", note: "USB-C/Lightning + extra kabel." },
-      { id: "powerbank", title: "Powerbank", note: "För heldagar (VinWonders/safari)." },
-      { id: "mediciner", title: "Mediciner (måste)", note: "Originalförpackning + recept om behövs." },
-      { id: "mygg", title: "Myggmedel", note: "Gärna effektivt + after-bite." },
-      { id: "sol", title: "Solskydd", note: "SPF + after sun." },
-      { id: "bad", title: "Badkläder", note: "Minst 2 uppsättningar om ni vill." },
-      { id: "sandaler", title: "Sandaler/flipflops", note: "Skönt till strand/pool." },
-      { id: "promenadskor", title: "Bekväma promenadskor", note: "Hanoi/Old Quarter." },
-      { id: "regn", title: "Lätt regnjacka/poncho", note: "Alltid bra i Sydostasien." },
-      { id: "forsta-hjalpen", title: "Mini första hjälpen", note: "Plåster, skavsår, vätskeersättning." },
-      { id: "kopior", title: "Kopior på pass + viktiga papper", note: "I molnet + offline." }
-    ];
+  function isSameDay(a, b) {
+    return a.getFullYear() === b.getFullYear()
+      && a.getMonth() === b.getMonth()
+      && a.getDate() === b.getDate();
+  }
 
-    const packListEl = document.getElementById("packList");
-    const packProgressText = document.getElementById("packProgressText");
-    const packAllBtn = document.getElementById("packAll");
-    const packNoneBtn = document.getElementById("packNone");
-    const packResetBtn = document.getElementById("packReset");
+  function updateAgendaStatuses() {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0);
 
-    function loadPackState() {
-      try {
-        const raw = localStorage.getItem(PACK_KEY);
-        return raw ? JSON.parse(raw) : {};
-      } catch {
-        return {};
+    const days = document.querySelectorAll("details.day[data-date]");
+    days.forEach(d => {
+      const ymd = d.getAttribute("data-date");
+      const date = ymdToLocalDate(ymd);
+      const badge = d.querySelector("[data-status]");
+      if (!badge) return;
+
+      badge.classList.remove("badge--today", "badge--done", "badge--upcoming");
+
+      if (isSameDay(date, today)) {
+        badge.textContent = "Idag";
+        badge.classList.add("badge--today");
+        d.open = true;
+      } else if (date < today) {
+        badge.textContent = "Klar";
+        badge.classList.add("badge--done");
+      } else {
+        badge.textContent = "Kommande";
+        badge.classList.add("badge--upcoming");
       }
+    });
+  }
+
+  // ====== Packlista (sparas i localStorage) ======
+  const PACK_KEY = "vietnam_packlist_v2";
+
+  const packItems = [
+    { id: "pass", title: "Pass", note: "Kolla giltighet (helst 6 månader+)." },
+    { id: "visum", title: "Visum / inresekrav", note: "Spara kopior i mobilen + mail." },
+    { id: "forsakring", title: "Reseförsäkring", note: "Försäkringsnummer + villkor offline." },
+    { id: "flygbiljetter", title: "Flygbiljetter / bokningsnummer", note: "Skärmdumpar ifall offline." },
+    { id: "hotell", title: "Hotellbokningar", note: "Adress + telefon, särskilt första natten." },
+    { id: "bankkort", title: "Bankkort + extra kort", note: "Ha ett kort separat från plånboken." },
+    { id: "kontanter", title: "Lite kontanter", note: "Bra för taxi/marknad första dagen." },
+    { id: "esim", title: "eSIM (installerat + redo)", note: "Aktivera datan vid landning." },
+    { id: "adapter", title: "Reseadapter + laddare", note: "USB-C/Lightning + extra kabel." },
+    { id: "powerbank", title: "Powerbank", note: "För heldagar." },
+    { id: "mediciner", title: "Mediciner (måste)", note: "Originalförpackning + recept om behövs." },
+    { id: "mygg", title: "Myggmedel", note: "Gärna effektivt + after-bite." },
+    { id: "sol", title: "Solskydd", note: "SPF + after sun." },
+    { id: "bad", title: "Badkläder", note: "Minst 2 uppsättningar om ni vill." },
+    { id: "sandaler", title: "Sandaler/flipflops", note: "Skönt till strand/pool." },
+    { id: "promenadskor", title: "Bekväma promenadskor", note: "Hanoi/Old Quarter." },
+    { id: "regn", title: "Lätt regnjacka/poncho", note: "Alltid bra i Sydostasien." },
+    { id: "forsta-hjalpen", title: "Mini första hjälpen", note: "Plåster, skavsår, vätskeersättning." },
+    { id: "kopior", title: "Kopior på pass + viktiga papper", note: "I molnet + offline." }
+  ];
+
+  const packListEl = document.getElementById("packList");
+  const packProgressText = document.getElementById("packProgressText");
+  const packAllBtn = document.getElementById("packAll");
+  const packNoneBtn = document.getElementById("packNone");
+  const packResetBtn = document.getElementById("packReset");
+
+  function loadPackState() {
+    try {
+      const raw = localStorage.getItem(PACK_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
     }
+  }
 
-    function savePackState(state) {
-      localStorage.setItem(PACK_KEY, JSON.stringify(state));
-    }
+  function savePackState(state) {
+    localStorage.setItem(PACK_KEY, JSON.stringify(state));
+  }
 
-    function renderPacklist() {
-      if (!packListEl) return;
-      const state = loadPackState();
-      packListEl.innerHTML = "";
+  function renderPacklist() {
+    if (!packListEl) return;
+    const state = loadPackState();
+    packListEl.innerHTML = "";
 
-      packItems.forEach(item => {
-        const wrapper = document.createElement("div");
-        wrapper.className = "pack-item";
-        wrapper.dataset.id = item.id;
+    packItems.forEach(item => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "pack-item";
+      wrapper.dataset.id = item.id;
 
-        const cb = document.createElement("input");
-        cb.type = "checkbox";
-        cb.id = "cb_" + item.id;
-        cb.checked = !!state[item.id];
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.id = "cb_" + item.id;
+      cb.checked = !!state[item.id];
 
-        const label = document.createElement("label");
-        label.setAttribute("for", cb.id);
-        label.innerHTML = `<strong>${item.title}</strong>${item.note ? `<small>${item.note}</small>` : ""}`;
+      const label = document.createElement("label");
+      label.setAttribute("for", cb.id);
+      label.innerHTML = `<strong>${item.title}</strong>${item.note ? `<small>${item.note}</small>` : ""}`;
 
-        cb.addEventListener("change", () => {
-          const next = loadPackState();
-          next[item.id] = cb.checked;
-          savePackState(next);
-          updatePackProgress();
-          updatePackStyles();
-        });
-
-        wrapper.appendChild(cb);
-        wrapper.appendChild(label);
-        packListEl.appendChild(wrapper);
+      cb.addEventListener("change", () => {
+        const next = loadPackState();
+        next[item.id] = cb.checked;
+        savePackState(next);
+        updatePackProgress();
+        updatePackStyles();
       });
 
-      updatePackProgress();
-      updatePackStyles();
-    }
-
-    function updatePackStyles() {
-      const state = loadPackState();
-      document.querySelectorAll(".pack-item").forEach(el => {
-        const id = el.dataset.id;
-        const done = !!state[id];
-        el.classList.toggle("done", done);
-      });
-    }
-
-    function updatePackProgress() {
-      if (!packProgressText) return;
-      const state = loadPackState();
-      const total = packItems.length;
-      const done = packItems.reduce((acc, it) => acc + (state[it.id] ? 1 : 0), 0);
-      packProgressText.textContent = `${done}/${total} klara`;
-    }
-
-    function setAllPack(value) {
-      const next = {};
-      packItems.forEach(it => next[it.id] = value);
-      savePackState(next);
-      renderPacklist();
-    }
-
-    if (packAllBtn) packAllBtn.addEventListener("click", () => setAllPack(true));
-    if (packNoneBtn) packNoneBtn.addEventListener("click", () => setAllPack(false));
-    if (packResetBtn) packResetBtn.addEventListener("click", () => {
-      localStorage.removeItem(PACK_KEY);
-      renderPacklist();
+      wrapper.appendChild(cb);
+      wrapper.appendChild(label);
+      packListEl.appendChild(wrapper);
     });
 
-    // Init
+    updatePackProgress();
+    updatePackStyles();
+  }
+
+  function updatePackStyles() {
+    const state = loadPackState();
+    document.querySelectorAll(".pack-item").forEach(el => {
+      const id = el.dataset.id;
+      const done = !!state[id];
+      el.classList.toggle("done", done);
+    });
+  }
+
+  function updatePackProgress() {
+    if (!packProgressText) return;
+    const state = loadPackState();
+    const total = packItems.length;
+    const done = packItems.reduce((acc, it) => acc + (state[it.id] ? 1 : 0), 0);
+    packProgressText.textContent = `${done}/${total} klara`;
+  }
+
+  function setAllPack(value) {
+    const next = {};
+    packItems.forEach(it => next[it.id] = value);
+    savePackState(next);
     renderPacklist();
-    setPreTripVisibility("auto");
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+  }
+
+  if (packAllBtn) packAllBtn.addEventListener("click", () => setAllPack(true));
+  if (packNoneBtn) packNoneBtn.addEventListener("click", () => setAllPack(false));
+  if (packResetBtn) packResetBtn.addEventListener("click", () => {
+    localStorage.removeItem(PACK_KEY);
+    renderPacklist();
+  });
+
+  /* =========================
+     🌦️ WEATHER (3 days) + cache + robust geocoding + fallbacks
+     Mount IDs expected:
+       #weather-hanoi
+       #weather-halong
+       #weather-phuquoc
+     ========================= */
+
+  (function () {
+    const GEO_KEY = "vietnam_weather_geo_v2";
+    const FC_KEY  = "vietnam_weather_forecast_v2";
+    const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+
+    const PLACES = [
+      {
+        key: "hanoi",
+        label: "Hanoi",
+        mountId: "weather-hanoi",
+        geoQueries: ["Hanoi, Vietnam", "Ha Noi, Vietnam", "Hà Nội, Vietnam"],
+        fallback: { lat: 21.0278, lon: 105.8342 }
+      },
+      {
+        key: "halong",
+        label: "Hạ Long",
+        mountId: "weather-halong",
+        // flera varianter + område (Bãi Cháy) som ofta matchar bättre
+        geoQueries: ["Ha Long, Quang Ninh, Vietnam", "Ha Long, Vietnam", "Halong, Vietnam", "Bai Chay, Ha Long, Vietnam", "Bãi Cháy, Hạ Long, Vietnam"],
+        fallback: { lat: 20.9593, lon: 107.0427 }
+      },
+      {
+        key: "phuquoc",
+        label: "Phú Quốc",
+        mountId: "weather-phuquoc",
+        // Duong Dong matchar ofta bättre (hotellområdet)
+        geoQueries: ["Duong Dong, Phu Quoc, Vietnam", "Dương Đông, Phú Quốc, Vietnam", "Phu Quoc Island, Vietnam", "Phu Quoc, Vietnam", "Phú Quốc, Vietnam"],
+        fallback: { lat: 10.2167, lon: 103.9667 }
+      }
+    ];
+
+    function safeJsonParse(raw, fallback) {
+      try { return raw ? JSON.parse(raw) : fallback; } catch { return fallback; }
+    }
+
+    function startOfTodayISO() {
+      const d = new Date();
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      return `${y}-${m}-${day}`;
+    }
+
+    function mountEl(id) {
+      return document.getElementById(id);
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function renderLoading(place) {
+      const el = mountEl(place.mountId);
+      if (!el) return;
+      el.innerHTML = `
+        <div class="info-card">
+          <div class="info-title">🌦️ Väder (3 dagar) – ${place.label}</div>
+          <div class="info-note">Hämtar väder…</div>
+        </div>
+      `;
+    }
+
+    function renderError(place, msg, debug) {
+      const el = mountEl(place.mountId);
+      if (!el) return;
+      el.innerHTML = `
+        <div class="info-card" style="border:1px solid #fee2e2; background:#fff1f2;">
+          <div class="info-title">🌦️ Väder (3 dagar) – ${place.label}</div>
+          <div class="info-note" style="color:#991b1b;"><strong>Kunde inte hämta väder.</strong><br>${msg}</div>
+          ${debug ? `<div class="info-note" style="margin-top:.35rem; color:#7f1d1d;"><code>${escapeHtml(debug)}</code></div>` : ""}
+        </div>
+      `;
+    }
+
+    function renderForecast(place, data) {
+      const el = mountEl(place.mountId);
+      if (!el) return;
+
+      const days = data.days || [];
+      const rows = days.map(d => `
+        <div class="pack-item" style="margin-top:.45rem;">
+          <div style="width:100%;">
+            <div style="display:flex; justify-content:space-between; gap:.75rem; align-items:center;">
+              <strong>${d.date}</strong>
+              <span class="chip chip--blue">${d.tmax}° / ${d.tmin}°</span>
+            </div>
+            <small>${d.summary}</small>
+          </div>
+        </div>
+      `).join("");
+
+      el.innerHTML = `
+        <div class="info-card">
+          <div class="info-title">🌦️ Väder (3 dagar) – ${place.label}</div>
+          <div class="info-note">Uppdateras automatiskt (max 1 gång/dag).</div>
+          <div style="margin-top:.35rem;">
+            ${rows || `<div class="info-note">Inget väderdata.</div>`}
+          </div>
+        </div>
+      `;
+    }
+
+    function loadGeoCache() {
+      return safeJsonParse(localStorage.getItem(GEO_KEY), {});
+    }
+    function saveGeoCache(cache) {
+      localStorage.setItem(GEO_KEY, JSON.stringify(cache));
+    }
+
+    function loadForecastCache() {
+      return safeJsonParse(localStorage.getItem(FC_KEY), {});
+    }
+    function saveForecastCache(cache) {
+      localStorage.setItem(FC_KEY, JSON.stringify(cache));
+    }
+
+    async function geocodePlace(place) {
+      const cache = loadGeoCache();
+      const cached = cache[place.key];
+
+      // geo cache: 7 dagar (räcker gott)
+      if (cached && cached.lat && cached.lon && (Date.now() - cached.ts) < (7 * ONE_DAY_MS)) {
+        return { lat: cached.lat, lon: cached.lon, source: "cache" };
+      }
+
+      for (const q of place.geoQueries) {
+        const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=8&language=en&format=json`;
+        try {
+          const res = await fetch(url);
+          if (!res.ok) continue;
+
+          const json = await res.json();
+          const results = Array.isArray(json.results) ? json.results : [];
+
+          // välj helst Vietnam-träff
+          const bestVN = results.find(r => (r.country_code || "").toUpperCase() === "VN");
+          const best = bestVN || results[0];
+
+          if (best && typeof best.latitude === "number" && typeof best.longitude === "number") {
+            cache[place.key] = { lat: best.latitude, lon: best.longitude, ts: Date.now(), q };
+            saveGeoCache(cache);
+            return { lat: best.latitude, lon: best.longitude, source: `geocode:${q}` };
+          }
+        } catch {
+          // test nästa query
+        }
+      }
+
+      // fallback om geocoding misslyckas
+      cache[place.key] = { lat: place.fallback.lat, lon: place.fallback.lon, ts: Date.now(), q: "fallback" };
+      saveGeoCache(cache);
+      return { lat: place.fallback.lat, lon: place.fallback.lon, source: "fallback" };
+    }
+
+    function weatherCodeToText(code) {
+      const map = {
+        0: "Klart",
+        1: "Mestadels klart",
+        2: "Delvis molnigt",
+        3: "Mulet",
+        45: "Dimma",
+        48: "Rimfrost-dimma",
+        51: "Duggregn (lätt)",
+        53: "Duggregn",
+        55: "Duggregn (kraftigt)",
+        61: "Regn (lätt)",
+        63: "Regn",
+        65: "Regn (kraftigt)",
+        71: "Snö (lätt)",
+        73: "Snö",
+        75: "Snö (kraftig)",
+        80: "Skurar (lätta)",
+        81: "Skurar",
+        82: "Skurar (kraftiga)",
+        95: "Åska",
+        96: "Åska + hagel",
+        99: "Åska + kraftigt hagel"
+      };
+      return map[code] || `Väderkod ${code}`;
+    }
+
+    async function fetchForecast(place, lat, lon) {
+      const fcCache = loadForecastCache();
+      const today = startOfTodayISO();
+      const cached = fcCache[place.key];
+
+      // forecast cache: 1 gång per dag
+      if (cached && cached.date === today && cached.data) {
+        return { data: cached.data, source: "cache" };
+      }
+
+      const url =
+        `https://api.open-meteo.com/v1/forecast` +
+        `?latitude=${encodeURIComponent(lat)}` +
+        `&longitude=${encodeURIComponent(lon)}` +
+        `&daily=temperature_2m_max,temperature_2m_min,weathercode` +
+        `&forecast_days=3` +
+        `&timezone=auto`;
+
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`Forecast HTTP ${res.status}`);
+
+      const json = await res.json();
+      const d = json.daily;
+
+      if (!d || !Array.isArray(d.time) || !Array.isArray(d.temperature_2m_max) || !Array.isArray(d.temperature_2m_min)) {
+        throw new Error("Forecast format error");
+      }
+
+      const days = d.time.map((date, i) => ({
+        date,
+        tmax: Math.round(d.temperature_2m_max[i]),
+        tmin: Math.round(d.temperature_2m_min[i]),
+        summary: weatherCodeToText((d.weathercode || [])[i])
+      }));
+
+      const data = { lat, lon, days };
+      fcCache[place.key] = { date: today, data };
+      saveForecastCache(fcCache);
+
+      return { data, source: "api" };
+    }
+
+    async function initWeather() {
+      for (const place of PLACES) {
+        const el = mountEl(place.mountId);
+        if (!el) {
+          console.warn(`[weather] Missing mount element #${place.mountId} (lägg in en div med detta id)`);
+          continue;
+        }
+
+        renderLoading(place);
+
+        try {
+          const { lat, lon, source: geoSource } = await geocodePlace(place);
+          const { data, source: fcSource } = await fetchForecast(place, lat, lon);
+
+          console.log(`[weather] ${place.label} OK`, { lat, lon, geoSource, fcSource });
+          renderForecast(place, data);
+        } catch (err) {
+          console.error(`[weather] ${place.label} error`, err);
+          renderError(place, err?.message || "Okänt fel", String(err));
+        }
+      }
+    }
+
+    // Run weather after everything is in DOM (script is at bottom, so usually OK)
+    initWeather();
+  })();
+
+  // ====== Init ======
+  renderPacklist();
+  setPreTripVisibility("auto");
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+
 </body>
 </html>
