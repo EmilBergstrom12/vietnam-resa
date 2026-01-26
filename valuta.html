@@ -86,6 +86,12 @@ button, .btn, .quick-btn, input, select, a {
       justify-content:space-between;
     }
 
+    .markup{min-width:170px;max-width:220px}
+    .markup label{font-size:.82rem;color:#475569;margin:0 0 .25rem 0}
+    .markup input{padding:.55rem .7rem}
+    .markup .hint{font-size:.75rem;color:#64748b;margin-top:.25rem;line-height:1.25}
+
+
     .btns{ display:flex; flex-wrap:wrap; gap:.5rem; }
     button{
       cursor:pointer;
@@ -199,6 +205,13 @@ button, .btn, .quick-btn, input, select, a {
           <button id="refreshRate" class="primary">⟳ Uppdatera kurs</button>
           <button id="useManual">✍️ Manuell kurs</button>
         </div>
+
+        <div class="markup">
+          <label for="markupPct">Påslag (%)</label>
+          <input id="markupPct" type="number" inputmode="decimal" min="0" step="0.1" placeholder="t.ex. 1" />
+          <div class="hint">Extra kostnad på SEK (uttags-/växlingsavgift). <strong>1</strong> = +1%.</div>
+        </div>
+
         <div class="btns">
           <button id="clear">🧹 Rensa</button>
         </div>
@@ -210,11 +223,6 @@ button, .btn, .quick-btn, input, select, a {
       <div class="mini">
         Offline? Vi använder senast sparad kurs. Du kan alltid sätta en manuell kurs.
       </div>
-      <div class="chips">
-  <span class="chip">🏦 TPBank</span>
-  <span class="chip">🏦 Vietcombank</span>
-  <span class="chip">🏦 BIDV</span>
-</div>
     </section>
   </main>
 
@@ -242,6 +250,8 @@ button, .btn, .quick-btn, input, select, a {
 
     // ===== Rate (live + cache + manual) =====
     const RATE_KEY = "vnd_sek_rate_cache_v1";
+    const MARKUP_KEY = "vnd_sek_markup_pct_v1";
+    const DEFAULT_MARKUP_PCT = 1;
     // Vi hämtar USD-baserade rates och räknar VND->SEK = (SEK/USD) / (VND/USD)
     // Källa: open.er-api.com (ingen nyckel behövs). Exempelendpoint: /v6/latest/USD
     const RATE_URL = "https://open.er-api.com/v6/latest/USD";
@@ -253,6 +263,36 @@ button, .btn, .quick-btn, input, select, a {
         const raw = localStorage.getItem(RATE_KEY);
         return raw ? JSON.parse(raw) : null;
       } catch { return null; }
+    }
+
+    function clamp(n, min, max) {
+      return Math.min(Math.max(n, min), max);
+    }
+
+    function getMarkupPct() {
+      if (!markupEl) return DEFAULT_MARKUP_PCT;
+      const raw = parseFloat((markupEl.value || "").replace(",", "."));
+      if (!Number.isFinite(raw)) return DEFAULT_MARKUP_PCT;
+      return clamp(raw, 0, 50);
+    }
+
+    function saveMarkupPct(pct) {
+      try { localStorage.setItem(MARKUP_KEY, String(pct)); } catch {}
+    }
+
+    function loadMarkupPct() {
+      try {
+        const raw = localStorage.getItem(MARKUP_KEY);
+        const n = raw == null ? NaN : parseFloat(raw);
+        return Number.isFinite(n) ? clamp(n, 0, 50) : DEFAULT_MARKUP_PCT;
+      } catch {
+        return DEFAULT_MARKUP_PCT;
+      }
+    }
+
+    function effectiveRateVndToSek() {
+      if (!Number.isFinite(rateVndToSek)) return null;
+      return rateVndToSek * (1 + getMarkupPct() / 100);
     }
 
     function saveRateCache(obj) {
@@ -271,12 +311,21 @@ button, .btn, .quick-btn, input, select, a {
         info.textContent = "Ingen kurs ännu.";
         return;
       }
-      const per1m = rateVndToSek * 1_000_000;
+
+      const markupPct = getMarkupPct();
+      const eff = effectiveRateVndToSek();
+
+      const per1mBase = rateVndToSek * 1_000_000;
+      const per1mEff = eff ? eff * 1_000_000 : null;
+
       const ts = meta.time ? new Date(meta.time) : null;
       const when = ts ? ts.toLocaleString("sv-SE") : (meta.note || "");
+
       info.innerHTML = `
-        <div><strong>1 000 000 VND ≈ ${per1m.toFixed(2)} SEK</strong></div>
-        <div style="margin-top:.25rem;">1 VND ≈ ${(rateVndToSek).toFixed(8)} SEK</div>
+        <div><strong>1 000 000 VND ≈ ${per1mEff ? per1mEff.toFixed(2) : per1mBase.toFixed(2)} SEK</strong> <span style="color:#64748b;font-size:.82rem;">(inkl. ${markupPct.toFixed(1)}% påslag)</span></div>
+        <div style="margin-top:.25rem;color:#64748b;font-size:.82rem;">
+          Bas: 1 000 000 VND ≈ ${per1mBase.toFixed(2)} SEK • 1 VND ≈ ${(rateVndToSek).toFixed(8)} SEK
+        </div>
         <div style="margin-top:.25rem;color:#64748b;font-size:.82rem;">
           ${when ? `Senast uppdaterad: ${when}` : ""}
           ${meta.source ? ` • Källa: ${meta.source}` : ""}
@@ -329,6 +378,7 @@ button, .btn, .quick-btn, input, select, a {
     // ===== Conversion logic (two-way) =====
     const vndEl = document.getElementById("vnd");
     const sekEl = document.getElementById("sek");
+    const markupEl = document.getElementById("markupPct");
     let active = "vnd"; // vilket fält användaren skrev senast
 
     function formatVndInput() {
@@ -337,16 +387,18 @@ button, .btn, .quick-btn, input, select, a {
     }
 
     function recalcFromVnd() {
-      if (!rateVndToSek) return;
+      const eff = effectiveRateVndToSek();
+      if (!eff) return;
       const vnd = parseNum(vndEl.value);
-      const sek = vnd * rateVndToSek;
+      const sek = vnd * eff;
       sekEl.value = sek ? sek.toFixed(2) : "";
     }
 
     function recalcFromSek() {
-      if (!rateVndToSek) return;
+      const eff = effectiveRateVndToSek();
+      if (!eff) return;
       const sek = parseNum(sekEl.value);
-      const vnd = sek / rateVndToSek;
+      const vnd = sek / eff;
       vndEl.value = vnd ? fmtIntSpaces(vnd) : "";
     }
 
@@ -373,6 +425,21 @@ button, .btn, .quick-btn, input, select, a {
       const sek = parseNum(sekEl.value);
       sekEl.value = sek ? sek.toFixed(2) : "";
     });
+
+    // Påslag (%)
+    if (markupEl) {
+      markupEl.addEventListener("input", () => {
+        const pct = getMarkupPct();
+        markupEl.value = String(pct);
+        saveMarkupPct(pct);
+        recalcFromActive();
+        renderRateInfo(loadRateCache() || {});
+      });
+      markupEl.addEventListener("blur", () => {
+        const pct = getMarkupPct();
+        markupEl.value = pct.toFixed(1).replace(/\.0$/, "");
+      });
+    }
 
     // Quick add buttons
     document.querySelectorAll("button[data-add]").forEach(btn => {
@@ -422,6 +489,12 @@ button, .btn, .quick-btn, input, select, a {
 
     // Init
     (async function init(){
+      // Ladda påslag från localStorage
+      if (markupEl) {
+        const pct = loadMarkupPct();
+        markupEl.value = pct.toFixed(1).replace(/\.0$/, "");
+      }
+
       const hadCache = useCachedRateIfAny();
       try {
         await fetchLiveRate(); // autouppdatera (om internet finns)
